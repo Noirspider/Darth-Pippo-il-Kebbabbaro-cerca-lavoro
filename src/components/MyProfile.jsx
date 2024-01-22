@@ -44,12 +44,12 @@ function MyProfile() {
         <Col xs={9} className="d-flex flex-column">
           <Row className="w-100">
             <Col>
-              <div className="fs-1 mt-3 rounded-3">
-                <Card className="rounded-5">
+              <div className="fs-1 mt-3">
+                <Card className=" rounded rounded-3">
                   <Card.Img
                     variant="top"
                     src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
-                    className="object-fit-cover rounded-top-3"
+                    className="object-fit-cover rounded rounded-top-3"
                     style={{ height: "201px", objectPosition: "0 16%" }}
                   />
                   <Card.Body>
@@ -78,8 +78,8 @@ function MyProfile() {
                         </div>
                         <div>
                           <button className="btn btn-pink rounded">Bottone 1</button>
-                          <button className="btn btn-pink rounded mx-2">Bottone 2</button>
-                          <button className="btn btn-pink rounded">
+                          <button className="btn btn-outline-pink rounded mx-2">Bottone 2</button>
+                          <button className="btn btn-outline-gray rounded">
                             <a
                               href="https://transmatchfinder.com/?si_tx_id=319782078&affiliateId=60176&partnerId=17583"
                               target="_blank"
@@ -100,7 +100,7 @@ function MyProfile() {
           </Row>
           <Row className="w-100 mt-3">
             <Col>
-              <Card className="">
+              <Card className="rounded rounded-3">
                 <Card.Body>
                   <Row>
                     <Col className="d-flex justify-content-between">
