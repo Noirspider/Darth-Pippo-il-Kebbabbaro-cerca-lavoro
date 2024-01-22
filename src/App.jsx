@@ -1,13 +1,22 @@
 import "./assets/css/mybootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyMain from "./components/MyMain";
+import MyProfile from "./components/MyProfile";
+import MyNavBar from "./components/MyNavBar";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MyMain />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <MyNavBar />
+              <MyProfile />
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
