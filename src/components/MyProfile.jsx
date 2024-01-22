@@ -1,28 +1,41 @@
 import React, { useRef } from "react"; // Importa useRef
 import { Card, Col, Container, Row } from "react-bootstrap";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 function MyProfile() {
-  const sliderRef = useRef(null); // Crea una ref per il componente Slider
+  const handleDragStart = (e) => e.preventDefault();
 
-  const goToNextSlide = () => {
-    sliderRef.current.slickNext(); // Utilizza la ref per chiamare il metodo slickNext()
-  };
-
-  const goToPrevSlide = () => {
-    sliderRef.current.slickPrev(); // Utilizza la ref per chiamare il metodo slickPrev()
-  };
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-  };
+  const items = [
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Text>dddddd</Card.Text>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>,
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Text>dddddd</Card.Text>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>,
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Text>dddddd</Card.Text>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>,
+  ];
 
   return (
     <Container>
@@ -57,85 +70,7 @@ function MyProfile() {
                           <button className="btn btn-pink rounded mx-2">Bottone 2</button>
                           <button className="btn btn-pink rounded">Franco</button>
                         </div>
-                        <div className="d-flex">
-                          <div>
-                            <Card style={{ width: "18rem" }}>
-                              <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                <Card.Text>dddddd</Card.Text>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                              </Card.Body>
-                            </Card>
-                          </div>{" "}
-                          <div>
-                            <Card style={{ width: "18rem" }}>
-                              <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                <Card.Text>dddddd</Card.Text>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                              </Card.Body>
-                            </Card>
-                          </div>{" "}
-                          <div>
-                            <Card style={{ width: "18rem" }}>
-                              <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                <Card.Text>dddddd</Card.Text>
-                                <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link>
-                              </Card.Body>
-                            </Card>
-                          </div>
-                        </div>
-                        {/* <div>
-                          <Slider {...settings} ref={sliderRef}>
-                            {" "}
-                            <button className="slider-arrow" onClick={goToPrevSlide}>
-                              <FaArrowLeft />
-                            </button>
-                            <div>
-                              <Card style={{ width: "18rem" }}>
-                                <Card.Body>
-                                  <Card.Title>Card Title</Card.Title>
-                                  <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                  <Card.Text>dddddd</Card.Text>
-                                  <Card.Link href="#">Card Link</Card.Link>
-                                  <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
-                              </Card>
-                            </div>
-                            <div>
-                              <Card style={{ width: "18rem" }}>
-                                <Card.Body>
-                                  <Card.Title>Card Title</Card.Title>
-                                  <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                  <Card.Text>dddddd</Card.Text>
-                                  <Card.Link href="#">Card Link</Card.Link>
-                                  <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
-                              </Card>
-                            </div>
-                            <div>
-                              <Card style={{ width: "18rem" }}>
-                                <Card.Body>
-                                  <Card.Title>Card Title</Card.Title>
-                                  <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                                  <Card.Text>dddddd</Card.Text>
-                                  <Card.Link href="#">Card Link</Card.Link>
-                                  <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
-                              </Card>
-                            </div>
-                            <button className="slider-arrow" onClick={goToNextSlide}>
-                              <FaArrowRight />
-                            </button>
-                          </Slider>
-                        </div> */}
+                        <AliceCarousel mouseTracking items={items} />
                       </Col>
                       <Col xs={4}>
                         <div className="fs-1 text-danger bg-darkgray mt-3">Università Tizio secondo</div>
