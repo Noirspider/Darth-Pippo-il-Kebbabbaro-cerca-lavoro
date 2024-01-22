@@ -40,37 +40,41 @@ function MyProfile() {
 
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center ">
         <Col xs={9} className="d-flex flex-column">
           <Row className="w-100">
             <Col>
               <div className="fs-1 mt-3 rounded-3">
-                <Card>
+                <Card className="rounded-5">
                   <Card.Img
                     variant="top"
                     src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
-                    className="object-fit-cover"
+                    className="object-fit-cover rounded-top-3"
                     style={{ height: "201px", objectPosition: "0 16%" }}
                   />
                   <Card.Body>
                     <Row>
                       <Col className="d-flex justify-content-between">
-                        <div>
+                        <div className=" position-relative">
                           <Image
                             src="https://i.pinimg.com/736x/d8/c7/36/d8c736420ebfa1df591f693fc06af017.jpg"
                             roundedCircle
-                            className=" object-fit-cover"
+                            className="object-fit-cover position-absolute border border-4 border-white"
+                            style={{ height: "152px", width: "152px", top: "-135px" }}
                           />
                         </div>
-                        <div>Matita</div>
+                        <div>
+                          {" "}
+                          <i class="bi bi-pencil"></i>
+                        </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col xs={8}>
-                        <div className="fs-1 mt-3">
-                          <h2>Tizio</h2>
-                          <h4>titolo tizio</h4>
-                          <p>tiziolandia</p>
+                        <div className="mt-3">
+                          <h2>Darth Pippo</h2>
+                          <h4>Oscuro Lord del Kebab</h4>
+                          <p>La Kebab Nera</p>
                         </div>
                         <div>
                           <button className="btn btn-pink rounded">Bottone 1</button>
