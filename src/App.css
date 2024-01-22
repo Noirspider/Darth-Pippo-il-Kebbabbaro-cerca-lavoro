@@ -1,0 +1,24 @@
+/* Stile delle freccette */
+.slider-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.slider-arrow {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.slider-arrow:focus {
+  outline: none;
+}
+
+.slider-arrow:hover {
+  color: #007bff; /* Cambia colore al passaggio del mouse */
+}
