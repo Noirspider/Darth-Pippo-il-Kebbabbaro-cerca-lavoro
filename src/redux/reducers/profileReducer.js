@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   myProfile: null,
   myExperience: null,
-  refreshExperience: false,
+  refreshExp: false,
 };
 
 const profileReducer = createSlice({
@@ -17,7 +17,7 @@ const profileReducer = createSlice({
       state.myExperience = action.payload;
     },
     refreshExperience: (state) => {
-      state.refreshExperience = !state.refreshExperience;
+      state.refreshExp = !state.refreshExp;
     },
   },
 });

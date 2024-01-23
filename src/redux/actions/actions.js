@@ -101,7 +101,7 @@ export const fetchDeleteExpAction = (idProfile, idExperience) => async (dispatch
     );
 
     if (response.ok) {
-      const data = await response.json();
+      /*       const data = await response.json(); */
       dispatch(refreshExperience());
     } else {
       throw new Error("Errore nel recupero dei risultati");

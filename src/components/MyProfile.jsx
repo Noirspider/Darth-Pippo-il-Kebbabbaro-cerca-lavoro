@@ -12,11 +12,12 @@ function MyProfile() {
 
   const myProfile = useSelector((state) => state.profile.myProfile);
   const myExperience = useSelector((state) => state.profile.myExperience);
-  const refreshExperience = useSelector((state) => state.profile.refreshExperience);
+  const refreshExperience = useSelector((state) => state.profile.refreshExp);
 
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
   }, []);
+
   useEffect(() => {
     dispatch(fetchExpAction("65af7f33bd5d12001890d40a"));
   }, [refreshExperience]);
