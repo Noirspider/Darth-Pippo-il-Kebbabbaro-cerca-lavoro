@@ -1,0 +1,8 @@
+.hover-gray:hover {
+  background: radial-gradient(
+    circle,
+    rgba(238, 238, 238, 1) 0%,
+    rgba(238, 238, 238, 0.5) 92%,
+    rgba(238, 238, 238, 0.05) 98%
+  );
+}

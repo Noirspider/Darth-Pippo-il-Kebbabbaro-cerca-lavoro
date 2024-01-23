@@ -18,62 +18,75 @@ function MyProfile() {
           <Row className="w-100">
             <Col>
               <div className="fs-1 mt-3">
-                <Card className=" rounded rounded-3">
-                  <Card.Img
-                    variant="top"
-                    src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
-                    className="object-fit-cover rounded rounded-top-3"
-                    style={{ height: "201px", objectPosition: "0 16%" }}
-                  />
-                  <Card.Body className=" pt-0">
-                    <Row>
-                      <Col className="d-flex justify-content-between">
-                        <div className=" position-relative">
-                          <Image
-                            src={myProfile.image}
-                            roundedCircle
-                            className="object-fit-cover position-absolute border border-4 border-white"
-                            style={{ height: "152px", width: "152px", top: "-105px" }}
-                          />
-                        </div>
-                        <div className=" fix-h-40">
-                          <i className="bi bi-pencil fs-5"></i>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xs={8}>
-                        <div className="mt-3">
-                          <h2 className=" fs-4">{myProfile.name + " " + myProfile.surname}</h2>
-                          <h4 className=" fs-6">{myProfile.title}</h4>
-                          <p className=" fs-6 text-muted">{myProfile.area}</p>
-                        </div>
-                        <div>
-                          <button className="btn btn-primary rounded-5">Bottone 1</button>
-                          <button className="btn btn-outline-primary rounded-5 mx-2">Bottone 2</button>
-                        </div>
-                      </Col>
-                      <Col xs={4}>
-                        <div className=" mt-3">
-                          {" "}
-                          <h3 className=" fs-6">Formazione presso</h3> <h4>Epicode</h4>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
+                {myProfile && (
+                  <Card className=" rounded rounded-3">
+                    <Card.Img
+                      variant="top"
+                      src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
+                      className="object-fit-cover rounded rounded-top-3"
+                      style={{ height: "201px", objectPosition: "0 16%" }}
+                    />
+                    <Card.Body className=" pt-0">
+                      <Row>
+                        <Col className="d-flex justify-content-between">
+                          <div className=" position-relative">
+                            <Image
+                              src={myProfile.image}
+                              roundedCircle
+                              className="object-fit-cover position-absolute border border-4 border-white"
+                              style={{ height: "152px", width: "152px", top: "-105px" }}
+                            />
+                          </div>
+                          <div className=" fix-h-40">
+                            <i className="bi bi-pencil fs-5"></i>
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs={8}>
+                          <div className="mt-3">
+                            <h2 className=" fs-4">{myProfile.name + " " + myProfile.surname}</h2>
+                            <h4 className=" fs-6">{myProfile.title}</h4>
+                            <p className="d-inline fs-7 text-muted">{myProfile.area} · </p>
+                            <a href="#" className="text-primary fs-7 fw-bold text-decoration-none">
+                              Informazioni di contatto
+                            </a>
+                            <a href="#" className="d-block text-primary fs-7 fw-bold text-decoration-none">
+                              100 collegamenti
+                            </a>
+                          </div>
+                          <div>
+                            <button className="btn btn-primary rounded-5">Disponibile per</button>
+                            <button className="btn btn-outline-primary rounded-5 mx-2">
+                              Aggiungi sezione del profilo
+                            </button>
+                            <button className="btn btn-outline-gray rounded-5 mx-2">Altro</button>
+                          </div>
+                        </Col>
+                        <Col xs={4}>
+                          <div className=" mt-3">
+                            {" "}
+                            <h3 className=" fs-6">Formazione presso</h3>{" "}
+                            <h4 className=" fs-6 text-uppercase">Epicode</h4>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                )}
               </div>
             </Col>
           </Row>
           <Row className="w-100 mt-3">
             <Col>
               <Card className="rounded rounded-3">
-                <Card.Body>
+                <Card.Body className="pb-0">
                   <Row>
                     <Col className="d-flex justify-content-between">
                       <div>
-                        <h3>Analisi</h3>
-                        <i className="bi bi-eye-fill">solo per kebab</i>
+                        <h3 className=" h5">Analisi</h3>
+                        <i className="bi bi-eye-fill fs-6 text-muted"></i>
+                        <span className=" fs-7 text-muted"> Solo per kebab</span>
                       </div>
                     </Col>
                   </Row>
@@ -86,7 +99,7 @@ function MyProfile() {
                             viewBox="0 0 24 24"
                             data-supported-dps="24x24"
                             fill="currentColor"
-                            className="mercado-match"
+                            className="mercado-match me-2"
                             width="24"
                             height="24"
                             focusable="false"
@@ -95,30 +108,31 @@ function MyProfile() {
                           </svg>{" "}
                         </div>
                         <div>
-                          <h4>7 visualizzazioni di Pippo</h4>
-                          <p>scopri chi ha visitato il tuo profilo</p>
+                          <h4 className="h6">7 visualizzazioni di Pippo</h4>
+                          <p className="fs-7">Scopri chi ha visitato il tuo profilo</p>
                         </div>
                       </div>
                     </Col>
                     <Col xs={4}>
                       <div className="d-flex mx-2">
                         <div>
-                          <i className="bi bi-search"></i>
+                          <i className="bi bi-search fs-5 me-2"></i>
                         </div>
                         <div>
-                          <h4>2 comparse nei motori di ricerca</h4>
-                          <p>Vedi quante volte compari nei risultati di ricerca.</p>
+                          <h4 className="h6">2 comparse nei motori di ricerca</h4>
+                          <p className="fs-7">Vedi quante volte compari nei risultati di ricerca.</p>
                         </div>
                       </div>
                     </Col>
                     <Col xs={4}></Col>
                   </Row>
-                  <Row className="border-top-5 border-black">
+                  <hr className="text-gray my-0" />
+                  <Row className="border-top-5 border-black  hover-gray">
                     <Col xs={12} className="p-0 m-0 ">
                       <Link to={"/"} className=" text-decoration-none text-black">
-                        <div className=" text-center">
-                          {" "}
-                          Mostrami altre attività <i className="bi bi-arrow-right"></i>
+                        <div className=" text-center py-2">
+                          <p className="d-inline">Mostra tutte le analisi </p>
+                          <i className="bi bi-arrow-right"></i>
                         </div>
                       </Link>
                     </Col>
