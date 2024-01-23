@@ -52,7 +52,7 @@ function MyModal({ show, handleClose }) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

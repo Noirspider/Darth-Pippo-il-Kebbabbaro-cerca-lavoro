@@ -48,7 +48,7 @@ function ExperienceModal({ expData, show, handleClose }) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Experience Settings</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
