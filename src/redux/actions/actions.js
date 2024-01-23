@@ -1,4 +1,4 @@
-import { setMyExperience, setMyProfile } from "../reducers/profileReducer";
+import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
 const token = process.env.REACT_APP_TOKEN;
 /* FETCH GET PROFILE */
 export const fetchProfileAction = (idProfile) => async (dispatch) => {
@@ -55,6 +55,54 @@ export const fetchExpAction = (idProfile) => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       dispatch(setMyExperience(data));
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};
+/* FETCH PUT EXPERIENCE */
+export const fetchPutExpAction = (idProfile, idExperience, updatedExperience) => async (dispatch) => {
+  try {
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" + idProfile + "/experiences/" + idExperience,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedExperience),
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(refreshExperience());
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};
+/* FETCH DELETE EXPERIENCE */
+export const fetchDeleteExpAction = (idProfile, idExperience) => async (dispatch) => {
+  try {
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" + idProfile + "/experiences/" + idExperience,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(refreshExperience());
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }

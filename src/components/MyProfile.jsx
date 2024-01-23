@@ -3,21 +3,46 @@ import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
-import MyModal from "./Modal";
+import MyModal from "./ProfileModal";
+import ExperienceModal from "./ExperienceModal";
+import ExperienceDeleteModal from "./ExperienceDeleteModal";
 
 function MyProfile() {
   const dispatch = useDispatch();
+
   const myProfile = useSelector((state) => state.profile.myProfile);
   const myExperience = useSelector((state) => state.profile.myExperience);
+  const refreshExperience = useSelector((state) => state.profile.refreshExperience);
+
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
-    dispatch(fetchExpAction("65af7f33bd5d12001890d40a"));
   }, []);
+  useEffect(() => {
+    dispatch(fetchExpAction("65af7f33bd5d12001890d40a"));
+  }, [refreshExperience]);
 
-  const [show, setShow] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [showExperienceModal, setShowExperienceModal] = useState(false);
+  const [showExperienceDeleteModal, setShowExperienceDeleteModal] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [experienceData, setExperienceData] = useState(null);
+
+  const handleProfileModal = () => setShowProfileModal(true);
+  const handleExperienceDeleteModal = (exp) => {
+    setExperienceData(exp);
+    setShowExperienceDeleteModal(true);
+  };
+  const handleExperienceModal = (exp) => {
+    setExperienceData(exp);
+    setShowExperienceModal(true);
+  };
+
+  const handleClose = () => {
+    setExperienceData(null);
+    setShowProfileModal(false);
+    setShowExperienceModal(false);
+    setShowExperienceDeleteModal(false);
+  };
 
   return (
     <Container>
@@ -47,10 +72,10 @@ function MyProfile() {
                             />
                           </div>
                           <div>
-                            <button className=" border-0 bg-white" onClick={handleShow}>
+                            <button className=" border-0 bg-white" onClick={handleProfileModal}>
                               <i className="bi bi-pencil fs-5"> </i>
                             </button>
-                            <MyModal show={show} handleClose={handleClose} />
+                            <MyModal show={showProfileModal} handleClose={handleClose} />
                           </div>
                         </Col>
                       </Row>
@@ -183,8 +208,14 @@ function MyProfile() {
                                   alt=""
                                   className=" fix-h-60"
                                 />
-                                <i className="icon-edit bi bi-pencil-square text-gray fs-5 mt-1"></i>
-                                <i className="icon-delete bi bi-x-square text-gray fs-5"></i>
+                                <i
+                                  className="icon-edit bi bi-pencil-square text-gray fs-5 mt-1"
+                                  onClick={() => handleExperienceModal(exp)}
+                                ></i>
+                                <i
+                                  className="icon-delete bi bi-x-square text-gray fs-5"
+                                  onClick={() => handleExperienceDeleteModal(exp)}
+                                ></i>
                               </div>
                             </Col>
                             <Col className="ps-0 pe-2">
@@ -201,6 +232,16 @@ function MyProfile() {
                         ))}
                     </Col>
                   </Row>
+                  {myExperience && (
+                    <ExperienceDeleteModal
+                      expData={experienceData}
+                      show={showExperienceDeleteModal}
+                      handleClose={handleClose}
+                    />
+                  )}
+                  {experienceData && (
+                    <ExperienceModal expData={experienceData} show={showExperienceModal} handleClose={handleClose} />
+                  )}
                   {/* <hr className="text-gray my-0" /> */}
                   <Row className="border-top-5 border-black  hover-gray">
                     <Col xs={12} className="p-0 m-0 ">
