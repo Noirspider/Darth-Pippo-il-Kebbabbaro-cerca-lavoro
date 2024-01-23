@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProfileAction } from "../redux/actions/actions";
 
 function MyProfile() {
   const dispatch = useDispatch();
-
+  const myProfile = useSelector((state) => state.profile.myProfile);
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
   }, []);
@@ -25,29 +25,28 @@ function MyProfile() {
                     className="object-fit-cover rounded rounded-top-3"
                     style={{ height: "201px", objectPosition: "0 16%" }}
                   />
-                  <Card.Body>
+                  <Card.Body className=" pt-0">
                     <Row>
                       <Col className="d-flex justify-content-between">
                         <div className=" position-relative">
                           <Image
-                            src="https://i.pinimg.com/736x/d8/c7/36/d8c736420ebfa1df591f693fc06af017.jpg"
+                            src={myProfile.image}
                             roundedCircle
                             className="object-fit-cover position-absolute border border-4 border-white"
-                            style={{ height: "152px", width: "152px", top: "-135px" }}
+                            style={{ height: "152px", width: "152px", top: "-105px" }}
                           />
                         </div>
-                        <div>
-                          {" "}
-                          <i className="bi bi-pencil"></i>
+                        <div className=" fix-h-40">
+                          <i className="bi bi-pencil fs-5"></i>
                         </div>
                       </Col>
                     </Row>
                     <Row>
                       <Col xs={8}>
                         <div className="mt-3">
-                          <h2>Darth Pippo</h2>
-                          <h4>Oscuro Lord del Kebab</h4>
-                          <p>La Kebab Nera</p>
+                          <h2 className=" fs-4">{myProfile.name + " " + myProfile.surname}</h2>
+                          <h4 className=" fs-6">{myProfile.title}</h4>
+                          <p className=" fs-6 text-muted">{myProfile.area}</p>
                         </div>
                         <div>
                           <button className="btn btn-primary rounded-5">Bottone 1</button>
@@ -55,7 +54,10 @@ function MyProfile() {
                         </div>
                       </Col>
                       <Col xs={4}>
-                        <div>Università Tizio secondo</div>
+                        <div className=" mt-3">
+                          {" "}
+                          <h3 className=" fs-6">Formazione presso</h3> <h4>Epicode</h4>
+                        </div>
                       </Col>
                     </Row>
                   </Card.Body>
