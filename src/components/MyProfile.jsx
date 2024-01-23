@@ -20,7 +20,7 @@ function MyProfile() {
   return (
     <Container>
       <Row className="justify-content-center ">
-        <Col xs={9} className="d-flex flex-column">
+        <Col xs={12} md={9} className="d-flex flex-column align-items-center">
           <Row className="w-100">
             <Col>
               <div className="fs-1 mt-3">
@@ -52,7 +52,7 @@ function MyProfile() {
                         </Col>
                       </Row>
                       <Row>
-                        <Col xs={8}>
+                        <Col xs={12} md={8}>
                           <div className="mt-1">
                             <h2 className=" fs-4 mb-0">{myProfile.name + " " + myProfile.surname}</h2>
                             <h4 className=" fs-6 fw-normal mb-0">{myProfile.title}</h4>
@@ -64,15 +64,15 @@ function MyProfile() {
                               100 collegamenti
                             </a>
                           </div>
-                          <div>
-                            <button className="btn btn-primary fw-bold rounded-5 py-1">Disponibile per</button>
-                            <button className="btn btn-outline-primary fw-bold rounded-5 mx-2 py-1">
+                          <div className="">
+                            <button className="btn btn-primary fw-bold rounded-5 py-1 me-2">Disponibile per</button>
+                            <button className="btn btn-outline-primary fw-bold rounded-5 me-2 py-1">
                               Aggiungi sezione del profilo
                             </button>
-                            <button className="btn btn-outline-gray fw-bold rounded-5 mx-2 py-1">Altro</button>
+                            <button className="btn btn-outline-gray fw-bold rounded-5 me-2 py-1">Altro</button>
                           </div>
                         </Col>
-                        <Col xs={4}>
+                        <Col xs={12} md={4}>
                           <div className=" mt-3">
                             {" "}
                             <h3 className=" fs-6">Formazione presso</h3>{" "}
@@ -151,7 +151,7 @@ function MyProfile() {
             </Col>
           </Row>
         </Col>
-        <Col xs={3}>
+        <Col xs={0} md={3}>
           <Row className=" mt-3">
             <Col xs={12}>
               <div className=" d-flex justify-content-between">
