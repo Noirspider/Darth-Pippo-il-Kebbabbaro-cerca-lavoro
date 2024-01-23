@@ -107,7 +107,7 @@ function MyProfile() {
                             <button className="btn btn-outline-primary fw-bold rounded-5 me-2 py-1">
                               Aggiungi sezione del profilo
                             </button>
-                            <button className="btn btn-outline-gray fw-bold rounded-5 me-2 py-1">Altro</button>
+                            <button className="btn btn-outline-darkgray fw-bold rounded-5 me-2 py-1">Altro</button>
                           </div>
                         </Col>
                         <Col xs={12} md={4}>
