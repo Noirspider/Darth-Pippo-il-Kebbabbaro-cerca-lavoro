@@ -6,6 +6,7 @@ import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
 import MyModal from "./ProfileModal";
 import ExperienceModal from "./ExperienceModal";
 import ExperienceDeleteModal from "./ExperienceDeleteModal";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -200,38 +201,44 @@ function MyProfile() {
                   </Row>
                   <Row>
                     <Col>
-                      {myExperience &&
-                        myExperience.map((exp) => (
-                          <Row key={exp._id} className="mt-2">
-                            <Col className=" col-auto">
-                              <div className="d-flex flex-column align-items-center justify-content-center">
-                                <img
-                                  src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
-                                  alt=""
-                                  className=" fix-h-60"
-                                />
-                                <i
-                                  className="icon-edit bi bi-pencil-square text-gray fs-5 mt-1"
-                                  onClick={() => handleExperienceModal(exp)}
-                                ></i>
-                                <i
-                                  className="icon-delete bi bi-x-square text-gray fs-5"
-                                  onClick={() => handleExperienceDeleteModal(exp)}
-                                ></i>
-                              </div>
-                            </Col>
-                            <Col className="ps-0 pe-2">
-                              <p className="fw-semibold pt-2 mb-0">{exp.role}</p>
-                              <p className="small mb-0">{exp.company}</p>
-                              <p className="text-gray small mb-0">
-                                {new Date(exp.startDate).getFullYear() + " - " + new Date(exp.endDate).getFullYear()}
-                              </p>
-                              <p className="text-gray small  mb-0">{exp.area}</p>
-                              <p className="small mt-2">{exp.description}</p>
-                            </Col>
-                            <hr className="text-gray my-0" />
-                          </Row>
-                        ))}
+                      <TransitionGroup>
+                        {myExperience &&
+                          myExperience.map((exp) => (
+                            <CSSTransition key={exp._id} timeout={300} classNames="fade">
+                              <Row className="mt-2">
+                                <Col className=" col-auto">
+                                  <div className="d-flex flex-column align-items-center justify-content-center">
+                                    <img
+                                      src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
+                                      alt=""
+                                      className=" fix-h-60"
+                                    />
+                                    <i
+                                      className="icon-edit bi bi-pencil-square text-gray fs-5 mt-1"
+                                      onClick={() => handleExperienceModal(exp)}
+                                    ></i>
+                                    <i
+                                      className="icon-delete bi bi-x-square text-gray fs-5"
+                                      onClick={() => handleExperienceDeleteModal(exp)}
+                                    ></i>
+                                  </div>
+                                </Col>
+                                <Col className="ps-0 pe-2">
+                                  <p className="fw-semibold pt-2 mb-0">{exp.role}</p>
+                                  <p className="small mb-0">{exp.company}</p>
+                                  <p className="text-gray small mb-0">
+                                    {new Date(exp.startDate).getFullYear() +
+                                      " - " +
+                                      new Date(exp.endDate).getFullYear()}
+                                  </p>
+                                  <p className="text-gray small  mb-0">{exp.area}</p>
+                                  <p className="small mt-2">{exp.description}</p>
+                                </Col>
+                                <hr className="text-gray my-0" />
+                              </Row>
+                            </CSSTransition>
+                          ))}
+                      </TransitionGroup>
                     </Col>
                   </Row>
                   {experienceData && (
