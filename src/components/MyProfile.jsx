@@ -3,6 +3,7 @@ import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProfileAction } from "../redux/actions/actions";
+import MyModal from "./Modal";
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -10,6 +11,11 @@ function MyProfile() {
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
   }, []);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <Container>
@@ -37,8 +43,11 @@ function MyProfile() {
                               style={{ height: "152px", width: "152px", top: "-105px" }}
                             />
                           </div>
-                          <div className=" fix-h-40">
-                            <i className="bi bi-pencil fs-5"></i>
+                          <div>
+                            <button className=" border-0 bg-white" onClick={handleShow}>
+                              <i className="bi bi-pencil"> </i>
+                            </button>
+                            <MyModal show={show} handleClose={handleClose} />
                           </div>
                         </Col>
                       </Row>
