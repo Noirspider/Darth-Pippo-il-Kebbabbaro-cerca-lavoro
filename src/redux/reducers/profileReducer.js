@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   myProfile: null,
+  myExperience: null,
 };
 
 const profileReducer = createSlice({
@@ -11,8 +12,11 @@ const profileReducer = createSlice({
     setMyProfile: (state, action) => {
       state.myProfile = action.payload;
     },
+    setMyExperience: (state, action) => {
+      state.myExperience = action.payload;
+    },
   },
 });
 
-export const { setMyProfile } = profileReducer.actions;
+export const { setMyProfile, setMyExperience } = profileReducer.actions;
 export default profileReducer.reducer;

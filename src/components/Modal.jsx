@@ -87,7 +87,7 @@ function MyModal({ show, handleClose }) {
             </Form.Group>
 
             <Form.Group controlId="formArea">
-              <Form.Label>Area</Form.Label>
+              <Form.Label>Località</Form.Label>
               <Form.Control type="text" name="area" value={formData.area} onChange={handleInputChange} />
             </Form.Group>
 

@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchProfileAction } from "../redux/actions/actions";
+import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
 import MyModal from "./Modal";
 
 function MyProfile() {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.profile.myProfile);
+  const myExperience = useSelector((state) => state.profile.myExperience);
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+    dispatch(fetchExpAction("65af7f33bd5d12001890d40a"));
   }, []);
 
   const [show, setShow] = useState(false);
@@ -21,6 +23,7 @@ function MyProfile() {
     <Container>
       <Row className="justify-content-center ">
         <Col xs={12} md={9} className="d-flex flex-column align-items-center">
+          {/* INIZIO CARD PROFILO */}
           <Row className="w-100">
             <Col>
               <div className="fs-1 mt-3">
@@ -86,6 +89,9 @@ function MyProfile() {
               </div>
             </Col>
           </Row>
+          {/* FINE CARD PROFILO */}
+
+          {/* INIZIO ANALISI */}
           <Row className="w-100 mt-3">
             <Col>
               <Card className="rounded rounded-3">
@@ -150,6 +156,64 @@ function MyProfile() {
               </Card>
             </Col>
           </Row>
+          {/* FINE ANALISI */}
+
+          {/* INIZIO ESPERIENZE */}
+          <Row className="w-100 mt-3 mb-5">
+            <Col>
+              <Card className="rounded rounded-3">
+                <Card.Body className="pb-0">
+                  <Row>
+                    <Col className="d-flex justify-content-between">
+                      <div>
+                        <h3 className=" h5">Esperienza</h3>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      {myExperience &&
+                        myExperience.map((exp) => (
+                          <Row key={exp._id}>
+                            <Col className=" col-auto">
+                              <div>
+                                <img
+                                  src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
+                                  alt=""
+                                  className=" fix-h-50"
+                                />
+                              </div>
+                            </Col>
+                            <Col>
+                              <p className=" mb-1">{exp.role}</p>
+                              <p className=" mb-1">{exp.company}</p>
+                              <p className=" mb-1">
+                                {new Date(exp.startDate).getFullYear() + " - " + new Date(exp.endDate).getFullYear()}
+                              </p>
+                              <p className=" mb-1">{exp.area}</p>
+                              <p className=" mb-1">{exp.description}</p>
+                              <hr />
+                            </Col>
+                          </Row>
+                        ))}
+                    </Col>
+                  </Row>
+                  <hr className="text-gray my-0" />
+                  <Row className="border-top-5 border-black  hover-gray">
+                    <Col xs={12} className="p-0 m-0 ">
+                      <Link to={"/"} className=" text-decoration-none text-black">
+                        <div className=" text-center py-2">
+                          <p className="d-inline">Mostra tutte le esperienze </p>
+                          <i className="bi bi-arrow-right"></i>
+                        </div>
+                      </Link>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          {/* FINE ESPERIENZE */}
         </Col>
         <Col xs={0} md={3}>
           <Row className=" mt-3">
