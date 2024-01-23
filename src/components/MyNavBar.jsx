@@ -18,7 +18,7 @@ function MyNavBar() {
               viewBox="0 0 24 24"
               data-supported-dps="24x24"
               fill="currentColor"
-              class="mercado-match"
+              className="mercado-match"
               width="24"
               height="24"
               focusable="false"
@@ -42,7 +42,7 @@ function MyNavBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -57,7 +57,7 @@ function MyNavBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -72,7 +72,7 @@ function MyNavBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -87,7 +87,7 @@ function MyNavBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -102,7 +102,7 @@ function MyNavBar() {
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
                 fill="currentColor"
-                class="mercado-match"
+                className="mercado-match"
                 width="24"
                 height="24"
                 focusable="false"
@@ -112,7 +112,7 @@ function MyNavBar() {
               NOTIFICHE
             </Nav.Link>
             <Nav.Link href="#action6">
-              <i class="bi bi-person-circle"></i>
+              <i className="bi bi-person-circle"></i>
             </Nav.Link>
 
             <NavDropdown title="Tu" id="navbarScrollingDropdown">
@@ -123,7 +123,7 @@ function MyNavBar() {
             </NavDropdown>
 
             <Nav.Link href="#" disabled>
-              <i class="bi bi-grid-3x3-gap-fill"></i>
+              <i className="bi bi-grid-3x3-gap-fill"></i>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -51,7 +51,7 @@ function MyProfile() {
                         </div>
                         <div>
                           {" "}
-                          <i class="bi bi-pencil"></i>
+                          <i className="bi bi-pencil"></i>
                         </div>
                       </Col>
                     </Row>
@@ -84,7 +84,7 @@ function MyProfile() {
                     <Col className="d-flex justify-content-between">
                       <div>
                         <h3>Analisi</h3>
-                        <i class="bi bi-eye-fill">solo per kebab</i>
+                        <i className="bi bi-eye-fill">solo per kebab</i>
                       </div>
                     </Col>
                   </Row>
@@ -97,7 +97,7 @@ function MyProfile() {
                             viewBox="0 0 24 24"
                             data-supported-dps="24x24"
                             fill="currentColor"
-                            class="mercado-match"
+                            className="mercado-match"
                             width="24"
                             height="24"
                             focusable="false"
@@ -114,7 +114,7 @@ function MyProfile() {
                     <Col xs={4}>
                       <div className="d-flex mx-2">
                         <div>
-                          <i class="bi bi-search"></i>
+                          <i className="bi bi-search"></i>
                         </div>
                         <div>
                           <h4>2 comparse nei motori di ricerca</h4>
@@ -129,7 +129,7 @@ function MyProfile() {
                       <Link to={"/"} className=" text-decoration-none text-black">
                         <div className=" text-center">
                           {" "}
-                          Mostrami altre attività <i class="bi bi-arrow-right"></i>
+                          Mostrami altre attività <i className="bi bi-arrow-right"></i>
                         </div>
                       </Link>
                     </Col>
@@ -149,7 +149,7 @@ function MyProfile() {
                   <p>Italiano</p>
                 </div>
                 <div>
-                  <i class="bi bi-pencil"></i>
+                  <i className="bi bi-pencil"></i>
                 </div>
               </div>
             </Col>
@@ -161,7 +161,7 @@ function MyProfile() {
                   <p> HTTPS://PIPPOOOOOOOO </p>
                 </div>
                 <div>
-                  <i class="bi bi-pencil"></i>
+                  <i className="bi bi-pencil"></i>
                 </div>
               </div>
             </Col>
