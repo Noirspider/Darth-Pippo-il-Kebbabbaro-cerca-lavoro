@@ -6,3 +6,11 @@
     rgba(238, 238, 238, 0.05) 98%
   );
 }
+
+.custom-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+#navbarScrollingDropdown {
+  padding-block: 0px;
+}

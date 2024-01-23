@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Importa useRef
+import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -28,8 +28,8 @@ function MyProfile() {
                   <Card className=" rounded rounded-3">
                     <Card.Img
                       variant="top"
-                      src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
-                      className="object-fit-cover rounded rounded-top-3"
+                      src="https://media.licdn.com/dms/image/C4D12AQHMPBvE3avWzg/article-inline_image-shrink_1000_1488/0/1616872522462?e=1710979200&v=beta&t=hhn-eWVAK9wum9gmaZ8u5RRmJ03jBBRP2CaD4yQqqxA"
+                      className="object-fit-cover rounded-top-3"
                       style={{ height: "201px", objectPosition: "0 16%" }}
                     />
                     <Card.Body className=" pt-0">
@@ -45,7 +45,7 @@ function MyProfile() {
                           </div>
                           <div>
                             <button className=" border-0 bg-white" onClick={handleShow}>
-                              <i className="bi bi-pencil"> </i>
+                              <i className="bi bi-pencil fs-5"> </i>
                             </button>
                             <MyModal show={show} handleClose={handleClose} />
                           </div>
@@ -53,9 +53,9 @@ function MyProfile() {
                       </Row>
                       <Row>
                         <Col xs={8}>
-                          <div className="mt-3">
-                            <h2 className=" fs-4">{myProfile.name + " " + myProfile.surname}</h2>
-                            <h4 className=" fs-6">{myProfile.title}</h4>
+                          <div className="mt-1">
+                            <h2 className=" fs-4 mb-0">{myProfile.name + " " + myProfile.surname}</h2>
+                            <h4 className=" fs-6 fw-normal mb-0">{myProfile.title}</h4>
                             <p className="d-inline fs-7 text-muted">{myProfile.area} · </p>
                             <a href="#" className="text-primary fs-7 fw-bold text-decoration-none">
                               Informazioni di contatto
@@ -65,11 +65,11 @@ function MyProfile() {
                             </a>
                           </div>
                           <div>
-                            <button className="btn btn-primary rounded-5">Disponibile per</button>
-                            <button className="btn btn-outline-primary rounded-5 mx-2">
+                            <button className="btn btn-primary fw-bold rounded-5 py-1">Disponibile per</button>
+                            <button className="btn btn-outline-primary fw-bold rounded-5 mx-2 py-1">
                               Aggiungi sezione del profilo
                             </button>
-                            <button className="btn btn-outline-gray rounded-5 mx-2">Altro</button>
+                            <button className="btn btn-outline-gray fw-bold rounded-5 mx-2 py-1">Altro</button>
                           </div>
                         </Col>
                         <Col xs={4}>
@@ -157,23 +157,25 @@ function MyProfile() {
               <div className=" d-flex justify-content-between">
                 <div>
                   {" "}
-                  <h3>Lingua del profilo</h3>
-                  <p>Italiano</p>
+                  <h3 className="h5">Lingua del profilo</h3>
+                  <p className=" text-gray fs-7">Italiano</p>
                 </div>
+
                 <div>
-                  <i className="bi bi-pencil"></i>
+                  <i className="bi bi-pencil fs-5"></i>
                 </div>
               </div>
             </Col>
+            <hr />
             <Col xs={12}>
               <div className=" d-flex justify-content-between">
                 <div>
                   {" "}
-                  <h3> Public profile & URL</h3>
-                  <p> HTTPS://PIPPOOOOOOOO </p>
+                  <h3 className="h5"> Public profile & URL</h3>
+                  <p className=" text-gray fs-7"> HTTPS://PIPPOOOOOOOO </p>
                 </div>
                 <div>
-                  <i className="bi bi-pencil"></i>
+                  <i className="bi bi-pencil fs-5"></i>
                 </div>
               </div>
             </Col>
