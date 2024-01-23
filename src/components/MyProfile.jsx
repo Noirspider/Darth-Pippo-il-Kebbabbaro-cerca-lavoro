@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
 import MyModal from "./ProfileModal";
-import ExperienceModal from "./ExperienceModal";
+import ExperienceModal from "./ExperiencePutModal";
 import ExperienceDeleteModal from "./ExperienceDeleteModal";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import ExperiencePostModal from "./ExperiencePostModal";
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -25,11 +26,16 @@ function MyProfile() {
 
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [showExperienceModal, setShowExperienceModal] = useState(false);
+  const [showExperiencePostModal, setShowExperiencePostModal] = useState(false);
   const [showExperienceDeleteModal, setShowExperienceDeleteModal] = useState(false);
 
   const [experienceData, setExperienceData] = useState(null);
 
   const handleProfileModal = () => setShowProfileModal(true);
+
+  const handleExperiencePostModal = () => {
+    setShowExperiencePostModal(true);
+  };
 
   const handleExperienceDeleteModal = (exp) => {
     setExperienceData(exp);
@@ -45,6 +51,7 @@ function MyProfile() {
     setShowProfileModal(false);
     setShowExperienceModal(false);
     setShowExperienceDeleteModal(false);
+    setShowExperiencePostModal(false);
   };
 
   return (
@@ -195,10 +202,11 @@ function MyProfile() {
                     <Col className="d-flex justify-content-between">
                       <div className="d-flex justify-content-between w-100">
                         <h3 className=" h5">Esperienza</h3>
-                        <i className="bi bi-plus-lg fs-4"></i>
+                        <i className="bi bi-plus-lg fs-4" onClick={handleExperiencePostModal}></i>
                       </div>
                     </Col>
                   </Row>
+                  <ExperiencePostModal show={showExperiencePostModal} handleClose={handleClose} />
                   <Row>
                     <Col>
                       <TransitionGroup>

@@ -62,6 +62,28 @@ export const fetchExpAction = (idProfile) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
+/* FETCH POST EXPERIENCE */
+export const fetchPostExpAction = (idProfile, ExperienceToPost) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + idProfile + "/experiences", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ExperienceToPost),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(refreshExperience());
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};
 /* FETCH PUT EXPERIENCE */
 export const fetchPutExpAction = (idProfile, idExperience, updatedExperience) => async (dispatch) => {
   try {
