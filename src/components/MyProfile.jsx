@@ -6,16 +6,8 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from "react-router-dom";
 
 function MyProfile() {
-  const handleDragStart = (e) => e.preventDefault();
-
   const items = [
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>dddddd</Card.Text>
-      </Card.Body>
-    </Card>,
+    ,
     <Card style={{ width: "18rem" }}>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
@@ -71,17 +63,9 @@ function MyProfile() {
                           <p>La Kebab Nera</p>
                         </div>
                         <div>
-                          <button className="btn btn-pink rounded">Bottone 1</button>
-                          <button className="btn btn-outline-pink rounded mx-2">Bottone 2</button>
-                          <button className="btn btn-outline-gray rounded">
-                            <a
-                              href="https://transmatchfinder.com/?si_tx_id=319782078&affiliateId=60176&partnerId=17583"
-                              target="_blank"
-                            ></a>{" "}
-                            Franco
-                          </button>
+                          <button className="btn btn-primary rounded-5">Bottone 1</button>
+                          <button className="btn btn-outline-primary rounded-5 mx-2">Bottone 2</button>
                         </div>
-                        <AliceCarousel mouseTracking items={items} />
                       </Col>
                       <Col xs={4}>
                         <div>Università Tizio secondo</div>
@@ -99,8 +83,8 @@ function MyProfile() {
                   <Row>
                     <Col className="d-flex justify-content-between">
                       <div>
-                        <h3>Attività</h3>
-                        <i class="bi bi-eye-fill">solo per gian</i>
+                        <h3>Analisi</h3>
+                        <i class="bi bi-eye-fill">solo per kebab</i>
                       </div>
                     </Col>
                   </Row>
