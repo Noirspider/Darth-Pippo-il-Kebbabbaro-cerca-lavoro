@@ -10,8 +10,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 function MyNavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary position-sticky top-0 z-3 py-0 mt-1">
-      <Container>
-        <div className="d-flex">
+      <Container style={{ minWidth: "350px" }}>
+        <div className="d-flex flex-nowrap">
           <Navbar.Brand href="#" className="p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,31 +28,31 @@ function MyNavBar() {
           </Navbar.Brand>
 
           <Form className="d-flex me-auto">
-            <Form.Control type="search" placeholder="Search" className="me-2 py-0" aria-label="Search" />
-            <Button variant="outline-success" className="py-0">
-              Search
-            </Button>
+            <Form.Control type="search" placeholder="Search" className=" py-0" aria-label="Search" />
           </Form>
         </div>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
+
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="ms-auto my-2 my-lg-0" /* style={{ maxHeight: "100px" }} */ navbarScroll>
-            <Nav.Link href="#action1" className=" text-center py-0">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                data-supported-dps="24x24"
-                fill="currentColor"
-                className="mercado-match mx-4"
-                width="24"
-                height="24"
-                focusable="false"
-              >
-                <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
-              </svg>{" "}
-              <p className="fs-7 mb-0">Home</p>
-            </Nav.Link>
+          <Nav className="ms-auto my-2 my-lg-0 flex-row  flex-wrap" /* style={{ maxHeight: "100px" }} */ navbarScroll>
+            <div className="text-center">
+              <Nav.Link href="#action1" className="  py-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  fill="currentColor"
+                  className="mercado-match mx-4"
+                  width="24"
+                  height="24"
+                  focusable="false"
+                >
+                  <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+                </svg>{" "}
+                <p className="fs-7 mb-0">Home</p>
+              </Nav.Link>
+            </div>
             <Nav.Link href="#action2" className=" text-center py-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ function MyNavBar() {
             <NavDropdown
               title={
                 <div className="d-flex flex-column align-items-center">
-                  <i className="bi bi-grid-3x3-gap-fill text-black fs-5"></i>{" "}
+                  <i className="bi bi-grid-3x3-gap-fill text-black fs-5"></i>
                   <span className="d-flex align-items-center fs-7">
                     Per le aziende <i className="bi bi-chevron-down fs-8 ms-1"></i>
                   </span>

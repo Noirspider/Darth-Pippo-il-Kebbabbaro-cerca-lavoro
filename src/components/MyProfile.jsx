@@ -56,12 +56,12 @@ function MyProfile() {
                           <div className="mt-1">
                             <h2 className=" fs-4 mb-0">{myProfile.name + " " + myProfile.surname}</h2>
                             <h4 className=" fs-6 fw-normal mb-0">{myProfile.title}</h4>
-                            <p className="d-inline fs-7 text-muted">{myProfile.area} · </p>
+                            <p className="d-inline fs-6 text-muted">{myProfile.area} · </p>
                             <a href="#" className="text-primary fs-7 fw-bold text-decoration-none">
                               Informazioni di contatto
                             </a>
                             <a href="#" className="d-block text-primary fs-7 fw-bold text-decoration-none">
-                              100 collegamenti
+                              100 Kebab collegati
                             </a>
                           </div>
                           <div className="">
@@ -95,7 +95,7 @@ function MyProfile() {
                       <div>
                         <h3 className=" h5">Analisi</h3>
                         <i className="bi bi-eye-fill fs-6 text-muted"></i>
-                        <span className=" fs-7 text-muted"> Solo per kebab</span>
+                        <span className=" fs-7 text-muted"> Solo per te</span>
                       </div>
                     </Col>
                   </Row>
