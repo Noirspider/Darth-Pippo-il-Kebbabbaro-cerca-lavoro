@@ -1,8 +1,16 @@
-import React from "react"; // Importa useRef
+import React, { useEffect } from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchProfileAction } from "../redux/actions/actions";
 
 function MyProfile() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+  }, []);
+
   return (
     <Container>
       <Row className="justify-content-center ">
