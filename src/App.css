@@ -17,3 +17,13 @@ body {
 #navbarScrollingDropdown {
   padding-block: 0px;
 }
+
+.icon-edit:hover {
+  color: #dac03f !important;
+  cursor: pointer;
+}
+
+.icon-delete:hover {
+  color: #ee4c3f !important;
+  cursor: pointer;
+}

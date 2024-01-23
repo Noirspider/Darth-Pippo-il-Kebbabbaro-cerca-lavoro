@@ -165,8 +165,9 @@ function MyProfile() {
                 <Card.Body className="pb-0">
                   <Row>
                     <Col className="d-flex justify-content-between">
-                      <div>
+                      <div className="d-flex justify-content-between w-100">
                         <h3 className=" h5">Esperienza</h3>
+                        <i className="bi bi-plus-lg fs-4"></i>
                       </div>
                     </Col>
                   </Row>
@@ -174,31 +175,33 @@ function MyProfile() {
                     <Col>
                       {myExperience &&
                         myExperience.map((exp) => (
-                          <Row key={exp._id}>
+                          <Row key={exp._id} className="mt-2">
                             <Col className=" col-auto">
-                              <div>
+                              <div className="d-flex flex-column align-items-center justify-content-center">
                                 <img
                                   src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
                                   alt=""
-                                  className=" fix-h-50"
+                                  className=" fix-h-60"
                                 />
+                                <i className="icon-edit bi bi-pencil-square text-gray fs-5 mt-1"></i>
+                                <i className="icon-delete bi bi-x-square text-gray fs-5"></i>
                               </div>
                             </Col>
-                            <Col>
-                              <p className=" mb-1">{exp.role}</p>
-                              <p className=" mb-1">{exp.company}</p>
-                              <p className=" mb-1">
+                            <Col className="ps-0 pe-2">
+                              <p className="fw-semibold pt-2 mb-0">{exp.role}</p>
+                              <p className="small mb-0">{exp.company}</p>
+                              <p className="text-gray small mb-0">
                                 {new Date(exp.startDate).getFullYear() + " - " + new Date(exp.endDate).getFullYear()}
                               </p>
-                              <p className=" mb-1">{exp.area}</p>
-                              <p className=" mb-1">{exp.description}</p>
-                              <hr />
+                              <p className="text-gray small  mb-0">{exp.area}</p>
+                              <p className="small mt-2">{exp.description}</p>
                             </Col>
+                            <hr className="text-gray my-0" />
                           </Row>
                         ))}
                     </Col>
                   </Row>
-                  <hr className="text-gray my-0" />
+                  {/* <hr className="text-gray my-0" /> */}
                   <Row className="border-top-5 border-black  hover-gray">
                     <Col xs={12} className="p-0 m-0 ">
                       <Link to={"/"} className=" text-decoration-none text-black">
