@@ -29,6 +29,7 @@ function MyProfile() {
   const [experienceData, setExperienceData] = useState(null);
 
   const handleProfileModal = () => setShowProfileModal(true);
+
   const handleExperienceDeleteModal = (exp) => {
     setExperienceData(exp);
     setShowExperienceDeleteModal(true);
@@ -233,7 +234,7 @@ function MyProfile() {
                         ))}
                     </Col>
                   </Row>
-                  {myExperience && (
+                  {experienceData && (
                     <ExperienceDeleteModal
                       expData={experienceData}
                       show={showExperienceDeleteModal}

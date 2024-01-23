@@ -17,7 +17,10 @@ function ExperienceDeleteModal({ expData, show, handleClose }) {
       <Modal.Header closeButton>
         <Modal.Title>Delete Experience</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+      <Modal.Body>
+        Sei sicuro di voler cancellare questa Experience? <br />
+        {expData.role}
+      </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
           Close
