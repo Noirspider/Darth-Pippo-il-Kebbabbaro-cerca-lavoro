@@ -1,29 +1,8 @@
 import React from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
-
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from "react-router-dom";
 
 function MyProfile() {
-  const items = [
-    ,
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>dddddd</Card.Text>
-      </Card.Body>
-    </Card>,
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>dddddd</Card.Text>
-      </Card.Body>
-    </Card>,
-  ];
-
   return (
     <Container>
       <Row className="justify-content-center ">

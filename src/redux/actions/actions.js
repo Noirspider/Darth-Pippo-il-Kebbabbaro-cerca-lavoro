@@ -1,12 +1,11 @@
-//slice asyc function
-/* import { fetchJobs } from "../reducers/job";
-export const fetchJobsAction = (url, query) => async (dispatch) => {
+import { setMyProfile } from "../reducers/job";
+export const fetchProfileAction = (idProfile) => async (dispatch) => {
   try {
-    const response = await fetch(url + query + "&limit=20");
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + idProfile);
 
     if (response.ok) {
-      const { data } = await response.json();
-      dispatch(fetchJobs(data));
+      const data = await response.json();
+      dispatch(setMyProfile(data));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }
@@ -15,20 +14,3 @@ export const fetchJobsAction = (url, query) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
- */
-
-//vanilla async action
-/* export const FETCH_JOBS = "FETCH_JOBS";
-
-export const fetchJobsAction = (url, query) => async (dispatch) => {
-  try {
-    const response = await fetch(url + query + "&limit=20");
-
-    if (response.ok) {
-      const { data } = await response.json();
-      dispatch({ type: FETCH_JOBS, payload: data });
-    } else {
-      throw new Error("Errore nel recupero dei risultati");
-    }
-  } catch (error) {}
-}; */
