@@ -202,7 +202,7 @@ function MyProfile() {
                     <Col className="d-flex justify-content-between">
                       <div className="d-flex justify-content-between w-100">
                         <h3 className=" h5">Esperienza</h3>
-                        <i className="bi bi-plus-lg fs-4" onClick={handleExperiencePostModal}></i>
+                        <i className=" icon-post bi bi-plus-lg fs-4" onClick={handleExperiencePostModal}></i>
                       </div>
                     </Col>
                   </Row>
