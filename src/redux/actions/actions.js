@@ -20,9 +20,9 @@ export const fetchProfileAction = (idProfile) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
-export const fetchPutProfileAction = (idProfile, newProfileObject) => async (dispatch) => {
+export const fetchPutProfileAction = (newProfileObject) => async (dispatch) => {
   try {
-    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + idProfile, {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
