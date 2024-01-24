@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allPost: null,
+  refreshPost: false,
 };
 
 const homePageReducer = createSlice({
@@ -11,8 +12,11 @@ const homePageReducer = createSlice({
     setAllPost: (state, action) => {
       state.allPost = action.payload;
     },
+    refreshHomePost: (state) => {
+      state.refreshPost = !state.refreshPost;
+    },
   },
 });
 
-export const { setAllPost } = homePageReducer.actions;
+export const { setAllPost, refreshHomePost } = homePageReducer.actions;
 export default homePageReducer.reducer;

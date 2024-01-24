@@ -1,4 +1,4 @@
-import { setAllPost } from "../reducers/homePageReducer";
+import { refreshHomePost, setAllPost } from "../reducers/homePageReducer";
 import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
 const token = process.env.REACT_APP_TOKEN;
 /* FETCH GET PROFILE */
@@ -146,6 +146,28 @@ export const fetchHomeAction = () => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       dispatch(setAllPost(data.reverse()));
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};
+/* FETCH POST HOMEPAGE */
+export const fetchPostHomeAction = (myPostToPost) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(myPostToPost),
+    });
+
+    if (response.ok) {
+      /* const data = await response.json(); */
+      dispatch(refreshHomePost());
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }
