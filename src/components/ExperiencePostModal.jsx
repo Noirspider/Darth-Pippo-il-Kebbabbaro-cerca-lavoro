@@ -26,7 +26,8 @@ function ExperiencePostModal({ show, handleClose }) {
     });
   };
 
-  const handleSaveChanges = () => {
+  const handleSaveChanges = (e) => {
+    e.preventDefault();
     // Perform your PUT request with the updated data
     const ExperienceToPost = {
       role: formData.role,
