@@ -17,7 +17,7 @@ function HomePutModal({ postData, show, handleClose }) {
       text: formData,
     };
 
-    dispatch(fetchPutHomeAction(postData._id, updatedPost));
+    dispatch(fetchPutHomeAction(postData._id, { text: formData }));
 
     handleClose();
   };
@@ -26,7 +26,7 @@ function HomePutModal({ postData, show, handleClose }) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Post</Modal.Title>
+          <Modal.Title>Edit Post {postData._id}</Modal.Title>
         </Modal.Header>
         <Form onSubmit={handleSaveChanges}>
           <Modal.Body>

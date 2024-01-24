@@ -17,7 +17,7 @@ function MyProfile() {
   const refreshExperience = useSelector((state) => state.profile.refreshExp);
 
   useEffect(() => {
-    dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+    dispatch(fetchProfileAction());
   }, []);
 
   useEffect(() => {

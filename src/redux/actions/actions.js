@@ -2,9 +2,9 @@ import { refreshHomePost, setAllPost } from "../reducers/homePageReducer";
 import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
 const token = process.env.REACT_APP_TOKEN;
 /* FETCH GET PROFILE */
-export const fetchProfileAction = (idProfile) => async (dispatch) => {
+export const fetchProfileAction = () => async (dispatch) => {
   try {
-    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + idProfile, {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

@@ -21,7 +21,7 @@ function MyHome() {
   const [selectedPostData, setSelectedPostData] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+    dispatch(fetchProfileAction());
   }, []);
 
   useEffect(() => {
