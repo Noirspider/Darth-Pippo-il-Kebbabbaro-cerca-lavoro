@@ -400,12 +400,12 @@ function MyHome() {
                       </a>
                     </li>
                   </ul>
-                  <div className=" align-content-center">
+                  <div className="  d-flex justify-content-center align-items-center">
                     <svg
                       role="img"
                       aria-hidden="false"
                       aria-label="LinkedIn"
-                      class="global-footer-compact__linkedin-logo"
+                      class="global-footer-compact__linkedin-logo mx-1"
                       xmlns="http://www.w3.org/2000/svg"
                       width="56"
                       height="14"
