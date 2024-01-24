@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyProfile from "./components/MyProfile";
 import MyNavBar from "./components/MyNavBar";
+import MyHome from "./components/MyHome";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           element={
             <>
               <MyNavBar />
-              <MyProfile />
+              {/* <MyProfile /> */}
+              <MyHome />
             </>
           }
         />
