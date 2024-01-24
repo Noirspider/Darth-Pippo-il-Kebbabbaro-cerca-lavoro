@@ -195,3 +195,24 @@ export const fetchDeleteHomeAction = (idPost) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
+/* FETCH PUT HOMEPAGE */
+export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + idPost, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(myPostToUpdate),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(refreshHomePost());
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};

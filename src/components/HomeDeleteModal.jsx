@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDeleteExpAction, fetchDeleteHomeAction } from "../redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { fetchDeleteHomeAction } from "../redux/actions/actions";
 import { Button, Modal } from "react-bootstrap";
 
 function HomeDeleteModal({ postData, show, handleClose }) {
   const dispatch = useDispatch();
-  const myProfile = useSelector((state) => state.profile.myProfile);
 
   const handleDelete = () => {
     dispatch(fetchDeleteHomeAction(postData._id));

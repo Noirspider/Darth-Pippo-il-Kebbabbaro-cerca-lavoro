@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchHomeAction, fetchPostHomeAction, fetchProfileAction } from "../redux/actions/actions";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HomeDeleteModal from "./HomeDeleteModal";
+import HomePutModal from "./HomePutModal";
 
 function MyHome() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function MyHome() {
   const [searchBarValue, setSearchBarValue] = useState("");
 
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
+  const [showHomePutModal, setShowHomePutModal] = useState(false);
 
   const [selectedPostData, setSelectedPostData] = useState(null);
 
@@ -43,16 +45,24 @@ function MyHome() {
     setSelectedPostData(post);
     setShowHomeDeleteModal(true);
   };
+  const handleHomePutModal = (post) => {
+    setSelectedPostData(post);
+    setShowHomePutModal(true);
+  };
 
   const handleClose = () => {
     setSelectedPostData(null);
     setShowHomeDeleteModal(false);
+    setShowHomePutModal(false);
   };
 
   return (
     <Container>
       {selectedPostData && (
         <HomeDeleteModal postData={selectedPostData} show={showHomeDeleteModal} handleClose={handleClose} />
+      )}
+      {selectedPostData && (
+        <HomePutModal postData={selectedPostData} show={showHomePutModal} handleClose={handleClose} />
       )}
       <Row>
         {/* INIZIO PARTE SINISTRA */}
@@ -303,10 +313,20 @@ function MyHome() {
                             </div>
                           </Col>
                           <Col xs={2}>
-                            <div className=" d-flex flex-column text-end">
-                              <i className="bi bi-three-dots fs-5"></i>
-                              <i className="bi bi-x-lg fs-5" onClick={() => handleHomeDeleteModal(post)}></i>
-                            </div>
+                            {myProfile._id == post.user._id ? (
+                              <div className=" d-flex flex-column text-end">
+                                <i
+                                  className="bi bi-three-dots fs-5 icon-put-post"
+                                  onClick={() => handleHomePutModal(post)}
+                                ></i>
+                                <i
+                                  className="bi bi-x-lg fs-5 icon-delete-post"
+                                  onClick={() => handleHomeDeleteModal(post)}
+                                ></i>
+                              </div>
+                            ) : (
+                              <div></div>
+                            )}
                           </Col>
                         </Row>
                         {/* post: corpo */}
