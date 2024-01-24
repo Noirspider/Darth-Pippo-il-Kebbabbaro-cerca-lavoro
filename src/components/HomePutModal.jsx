@@ -8,16 +8,19 @@ import { Form } from "react-bootstrap";
 function HomePutModal({ postData, show, handleClose }) {
   const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState(postData.text);
+  const [inputValue, setInputValue] = useState(postData.text);
+
+  const handleInputValue = (e) => {
+    setInputValue(e.target.value);
+  };
 
   const handleSaveChanges = (e) => {
     e.preventDefault();
-
     const updatedPost = {
-      text: formData,
+      text: inputValue,
     };
 
-    dispatch(fetchPutHomeAction(postData._id, { text: formData }));
+    dispatch(fetchPutHomeAction(postData._id, updatedPost));
 
     handleClose();
   };
@@ -32,13 +35,7 @@ function HomePutModal({ postData, show, handleClose }) {
           <Modal.Body>
             <Form.Group controlId="formDescription">
               <Form.Label>Post Content</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="postText"
-                value={formData}
-                onChange={(e) => setFormData(e.target.value)}
-                required
-              />
+              <Form.Control as="textarea" name="postText" value={inputValue} onChange={handleInputValue} required />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>

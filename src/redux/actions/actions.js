@@ -202,12 +202,13 @@ export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) =
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(myPostToUpdate),
     });
 
     if (response.ok) {
-      const data = await response.json();
+      // const data = await response.json();
       dispatch(refreshHomePost());
     } else {
       throw new Error("Errore nel recupero dei risultati");
