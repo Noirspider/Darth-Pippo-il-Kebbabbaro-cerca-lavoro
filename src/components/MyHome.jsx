@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchProfileAction } from "../redux/actions/actions";
+import { fetchHomeAction, fetchProfileAction } from "../redux/actions/actions";
 
 function MyHome() {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.profile.myProfile);
+  const allPost = useSelector((state) => state.home.allPost);
 
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+    dispatch(fetchHomeAction());
   }, []);
 
   return (
@@ -225,105 +227,107 @@ function MyHome() {
           </Row>
           {/* fine nuovo post */}
           <Row className="w-100 mt-3">
-            <Col>
-              <Card className="rounded rounded-3">
-                <Card.Body className="pb-0">
-                  {/* post: intestazione */}
-                  <Row className="mb-2">
-                    <Col xs={1}>
-                      <div>
-                        <Image
-                          src="https://upload.wikimedia.org/wikipedia/it/c/c4/Il_campione_olimpico_%28The_Olympic_Champ%29_1942.png"
-                          roundedCircle
-                          className="object-fit-cover border border-2 border-white"
-                          style={{ height: "48px", width: "48px" }}
-                        />
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="px-1">
-                        <p className="fw-semibold m-0">Autore del post</p>
-                        <p className="text-gray fs-7 m-0">Full Darth Developer</p>
-                        <p className="text-gray fs-7 m-0">
-                          2 giorni <span className="fw-bold"> · </span>
-                          <i className="bi bi-globe-americas"></i>
-                        </p>
-                      </div>
-                    </Col>
-                    <Col xs={2}>
-                      <div className=" text-end">
-                        <i className="bi bi-three-dots fs-5"></i>
-                        <i className="bi bi-x-lg fs-5 ms-3"></i>
-                      </div>
-                    </Col>
-                  </Row>
-                  {/* post: corpo */}
-                  <Row>
-                    <Col xs={12}>
-                      <div>
-                        <p className="fs-7">
-                          In un mondo dove il cielo era dipinto di verde e gli alberi danzavano il tango, Pippo e Franco
-                          si ritrovarono a navigare su una barca a forma di cucchiaio gigante. Il mare era un infinito
-                          tappeto di gelato alla fragola, e i due amici remavano usando enormi bacchette cinesi. "Pippo,
-                          hai visto quella nuvola a forma di pollo?" chiese Franco, puntando verso un cumulo di vapore
-                          che gracchiava come una gallina. "Sì, e guarda là! Un gatto che suona il violino!" rispose
-                          Pippo, indicando un felino elegantemente vestito che galleggiava su una ciambella pneumatica.
-                          Mentre navigavano, incontrarono un pescatore che pescava parole dal mare. "Buongiorno!"
-                          esclamò, tirando su dalla sua rete un grosso "CIAO" scintillante. Pippo e Franco risposero al
-                          saluto, stupiti, e continuarono il loro viaggio. D'improvviso, la barca-cucchiaio colpì
-                          qualcosa di duro. Era un'isola fatta interamente di libri. Gli alberi erano pagine piegate, e
-                          i fiori erano segnalibri colorati. "È l'Isola delle Storie Non Raccontate," disse una voce
-                          misteriosa. Era un vecchio saggio con un cappello da lampada. "Ogni libro qui contiene una
-                          storia che nessuno ha mai letto." Pippo e Franco esplorarono l'isola, trovando libri che
-                          raccontavano di mondi dove il tempo camminava all'indietro e gli animali parlavano in rime.
-                          Alla fine della giornata, decisero di ripartire, portando con loro un libro ciascuno. Tornati
-                          sulla loro barca-cucchiaio, ripresero a remare nel mare di gelato. Mentre il sole, che
-                          assomigliava sorprendentemente a un'enorme arancia, tramontava, i due amici si guardarono e
-                          risero. Erano stati testimoni di meraviglie inimmaginabili, e tutto ciò che potevano fare era
-                          sorridere alla stranezza e bellezza del loro viaggio. E così, mentre la notte cadeva su un
-                          mondo dove tutto era possibile, Pippo e Franco continuarono a navigare, chiedendosi quali
-                          altre avventure li aspettassero all'orizzonte.
-                        </p>
-                      </div>
-                    </Col>
-                  </Row>
-                  {/* --- */}
-                  <hr className="text-gray my-0" />
-                  <Row>
-                    <Col xs={12} className="p-0 m-0 my-2 ">
-                      <Link to={"/"} className=" text-decoration-none text-black">
-                        <Row>
-                          <Col xs={3}>
-                            <div className="d-flex justify-content-center align-items-center hover-gray">
-                              <i className="bi bi-hand-thumbs-up me-1"></i>
-                              <span className="fs-7 text-gray fw-semibold">Consiglia</span>
-                            </div>
-                          </Col>
-                          <Col xs={3}>
-                            <div className="d-flex justify-content-center align-items-center hover-gray">
-                              <i className="bi bi-chat-text me-1"></i>
-                              <span className="fs-7 text-gray fw-semibold">Commenta</span>
-                            </div>
-                          </Col>
-                          <Col xs={3}>
-                            <div className="d-flex justify-content-center align-items-center hover-gray">
-                              <i className="bi bi-repeat me-1"></i>
-                              <span className="fs-7 text-gray fw-semibold">Diffondi il post</span>
-                            </div>
-                          </Col>
-                          <Col xs={3}>
-                            <div className="d-flex justify-content-center align-items-center hover-gray">
-                              <i className="bi bi-send-fill me-1"></i>
-                              <span className="fs-7 text-gray fw-semibold">Invia</span>
-                            </div>
-                          </Col>
-                        </Row>
-                      </Link>
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
-            </Col>
+            {allPost && (
+              <Col>
+                <Card className="rounded rounded-3">
+                  <Card.Body className="pb-0">
+                    {/* post: intestazione */}
+                    <Row className="mb-2 ">
+                      <Col className=" col-auto p-0 ps-2 ">
+                        <div>
+                          <Image
+                            src="https://upload.wikimedia.org/wikipedia/it/c/c4/Il_campione_olimpico_%28The_Olympic_Champ%29_1942.png"
+                            roundedCircle
+                            className="object-fit-cover border border-2 border-white"
+                            style={{ height: "48px", width: "48px" }}
+                          />
+                        </div>
+                      </Col>
+                      <Col>
+                        <div className="px-1">
+                          <p className="fw-semibold m-0">Autore del post</p>
+                          <p className="text-gray fs-7 m-0">Full Darth Developer</p>
+                          <p className="text-gray fs-7 m-0">
+                            2 giorni <span className="fw-bold"> · </span>
+                            <i className="bi bi-globe-americas"></i>
+                          </p>
+                        </div>
+                      </Col>
+                      <Col xs={2}>
+                        <div className=" d-flex flex-column text-end">
+                          <i className="bi bi-three-dots fs-5"></i>
+                          <i className="bi bi-x-lg fs-5"></i>
+                        </div>
+                      </Col>
+                    </Row>
+                    {/* post: corpo */}
+                    <Row>
+                      <Col xs={12}>
+                        <div>
+                          <p className="fs-7">
+                            In un mondo dove il cielo era dipinto di verde e gli alberi danzavano il tango, Pippo e
+                            Franco si ritrovarono a navigare su una barca a forma di cucchiaio gigante. Il mare era un
+                            infinito tappeto di gelato alla fragola, e i due amici remavano usando enormi bacchette
+                            cinesi. "Pippo, hai visto quella nuvola a forma di pollo?" chiese Franco, puntando verso un
+                            cumulo di vapore che gracchiava come una gallina. "Sì, e guarda là! Un gatto che suona il
+                            violino!" rispose Pippo, indicando un felino elegantemente vestito che galleggiava su una
+                            ciambella pneumatica. Mentre navigavano, incontrarono un pescatore che pescava parole dal
+                            mare. "Buongiorno!" esclamò, tirando su dalla sua rete un grosso "CIAO" scintillante. Pippo
+                            e Franco risposero al saluto, stupiti, e continuarono il loro viaggio. D'improvviso, la
+                            barca-cucchiaio colpì qualcosa di duro. Era un'isola fatta interamente di libri. Gli alberi
+                            erano pagine piegate, e i fiori erano segnalibri colorati. "È l'Isola delle Storie Non
+                            Raccontate," disse una voce misteriosa. Era un vecchio saggio con un cappello da lampada.
+                            "Ogni libro qui contiene una storia che nessuno ha mai letto." Pippo e Franco esplorarono
+                            l'isola, trovando libri che raccontavano di mondi dove il tempo camminava all'indietro e gli
+                            animali parlavano in rime. Alla fine della giornata, decisero di ripartire, portando con
+                            loro un libro ciascuno. Tornati sulla loro barca-cucchiaio, ripresero a remare nel mare di
+                            gelato. Mentre il sole, che assomigliava sorprendentemente a un'enorme arancia, tramontava,
+                            i due amici si guardarono e risero. Erano stati testimoni di meraviglie inimmaginabili, e
+                            tutto ciò che potevano fare era sorridere alla stranezza e bellezza del loro viaggio. E
+                            così, mentre la notte cadeva su un mondo dove tutto era possibile, Pippo e Franco
+                            continuarono a navigare, chiedendosi quali altre avventure li aspettassero all'orizzonte.
+                          </p>
+                        </div>
+                      </Col>
+                    </Row>
+                    {/* --- */}
+                    <hr className="text-gray my-0" />
+                    <Row>
+                      <Col xs={12} className="p-0 m-0 my-2 ">
+                        <Link to={"/"} className=" text-decoration-none text-black">
+                          <Row>
+                            <Col xs={3}>
+                              <div className="d-flex justify-content-center align-items-center hover-gray">
+                                <i className="bi bi-hand-thumbs-up me-1"></i>
+                                <span className="fs-7 text-gray fw-semibold">Consiglia</span>
+                              </div>
+                            </Col>
+                            <Col xs={3}>
+                              <div className="d-flex justify-content-center align-items-center hover-gray">
+                                <i className="bi bi-chat-text me-1"></i>
+                                <span className="fs-7 text-gray fw-semibold">Commenta</span>
+                              </div>
+                            </Col>
+                            <Col xs={3}>
+                              <div className="d-flex justify-content-center align-items-center hover-gray">
+                                <i className="bi bi-repeat me-1"></i>
+                                <span className="fs-7 text-gray fw-semibold">Diffondi il post</span>
+                              </div>
+                            </Col>
+                            <Col xs={3}>
+                              <div className="d-flex justify-content-center align-items-center hover-gray">
+                                <i className="bi bi-send-fill me-1"></i>
+                                <span className="fs-7 text-gray fw-semibold">Invia</span>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Link>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+              </Col>
+            )}
           </Row>
         </Col>
         {/* FINE PARTE CENTRALE */}
@@ -416,7 +420,7 @@ function MyHome() {
                       role="img"
                       aria-hidden="false"
                       aria-label="LinkedIn"
-                      class="global-footer-compact__linkedin-logo mx-1"
+                      className="global-footer-compact__linkedin-logo mx-1"
                       xmlns="http://www.w3.org/2000/svg"
                       width="56"
                       height="14"
