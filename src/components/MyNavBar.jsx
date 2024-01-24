@@ -9,7 +9,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 function MyNavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary position-sticky top-0 z-3 py-0 mt-1 py-1">
+    <Navbar expand="lg" className="bg-body-tertiary position-sticky top-0 z-3 py-0 mt-1 pt-1">
       <Container style={{ minWidth: "350px" }}>
         <div className="d-flex flex-nowrap">
           <Navbar.Brand href="#" className="p-0">
