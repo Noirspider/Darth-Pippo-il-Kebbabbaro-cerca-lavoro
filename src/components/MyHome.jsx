@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchProfileAction } from "../redux/actions/actions";
 
 function MyHome() {
+  const dispatch = useDispatch();
+  const myProfile = useSelector((state) => state.profile.myProfile);
+
+  useEffect(() => {
+    dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
+  }, []);
+
   return (
     <Container>
       <Row>
@@ -23,7 +32,7 @@ function MyHome() {
                       <Col className=" ">
                         <div className=" position-relative d-flex justify-content-center">
                           <Image
-                            src="https://upload.wikimedia.org/wikipedia/it/c/c4/Il_campione_olimpico_%28The_Olympic_Champ%29_1942.png"
+                            src={myProfile.image}
                             roundedCircle
                             className="object-fit-cover position position-absolute border border-4 border-white"
                             style={{ height: "72px", width: "72px", margin: "-36px 0 0 0" }}
@@ -32,12 +41,14 @@ function MyHome() {
                       </Col>
                     </Row>
                     <Row className="fs-7 mt-5">
-                      <Col xs={12} className="d-flex justify-content-center">
-                        <div className=" text-center">
-                          <h2 className=" fs-6">Pippo</h2>
-                          <h4 className="fs-7 text-gray fw-normal">Full Darth Developer</h4>
-                        </div>
-                      </Col>
+                      {myProfile && (
+                        <Col xs={12} className="d-flex justify-content-center">
+                          <div className=" text-center">
+                            <h2 className=" fs-6">{myProfile.username}</h2>
+                            <h4 className="fs-7 text-gray fw-normal">{myProfile.title}</h4>
+                          </div>
+                        </Col>
+                      )}
                       <hr className="text-gray" />
                       <Col xs={12}>
                         <div>
@@ -159,7 +170,7 @@ function MyHome() {
                     <Col xs={1}>
                       <div>
                         <Image
-                          src="https://upload.wikimedia.org/wikipedia/it/c/c4/Il_campione_olimpico_%28The_Olympic_Champ%29_1942.png"
+                          src={myProfile.image}
                           roundedCircle
                           className="object-fit-cover border border-2 border-white"
                           style={{ height: "48px", width: "48px" }}
