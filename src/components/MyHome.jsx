@@ -169,7 +169,7 @@ function MyHome() {
                 <Card.Body className="pb-0">
                   {/* input */}
                   <Row className="mb-1">
-                    <Col xs={1}>
+                    <Col className=" col-auto pe-0">
                       <div>
                         <Image
                           src={myProfile.image}
