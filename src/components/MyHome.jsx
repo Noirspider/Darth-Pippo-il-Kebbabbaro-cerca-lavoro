@@ -251,10 +251,27 @@ function MyHome() {
                     <Col xs={12}>
                       <div>
                         <p className="fs-7">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia optio eligendi voluptatem
-                          laborum magnam natus, deserunt nostrum aspernatur sequi omnis ratione. Pariatur dicta quod eos
-                          itaque at mollitia unde soluta obcaecati, eius, explicabo omnis! Quibusdam quos quisquam
-                          voluptas illo tempora distinctio officiis ipsum fugiat dolore quas sint, ipsa pariatur natus?
+                          In un mondo dove il cielo era dipinto di verde e gli alberi danzavano il tango, Pippo e Franco
+                          si ritrovarono a navigare su una barca a forma di cucchiaio gigante. Il mare era un infinito
+                          tappeto di gelato alla fragola, e i due amici remavano usando enormi bacchette cinesi. "Pippo,
+                          hai visto quella nuvola a forma di pollo?" chiese Franco, puntando verso un cumulo di vapore
+                          che gracchiava come una gallina. "Sì, e guarda là! Un gatto che suona il violino!" rispose
+                          Pippo, indicando un felino elegantemente vestito che galleggiava su una ciambella pneumatica.
+                          Mentre navigavano, incontrarono un pescatore che pescava parole dal mare. "Buongiorno!"
+                          esclamò, tirando su dalla sua rete un grosso "CIAO" scintillante. Pippo e Franco risposero al
+                          saluto, stupiti, e continuarono il loro viaggio. D'improvviso, la barca-cucchiaio colpì
+                          qualcosa di duro. Era un'isola fatta interamente di libri. Gli alberi erano pagine piegate, e
+                          i fiori erano segnalibri colorati. "È l'Isola delle Storie Non Raccontate," disse una voce
+                          misteriosa. Era un vecchio saggio con un cappello da lampada. "Ogni libro qui contiene una
+                          storia che nessuno ha mai letto." Pippo e Franco esplorarono l'isola, trovando libri che
+                          raccontavano di mondi dove il tempo camminava all'indietro e gli animali parlavano in rime.
+                          Alla fine della giornata, decisero di ripartire, portando con loro un libro ciascuno. Tornati
+                          sulla loro barca-cucchiaio, ripresero a remare nel mare di gelato. Mentre il sole, che
+                          assomigliava sorprendentemente a un'enorme arancia, tramontava, i due amici si guardarono e
+                          risero. Erano stati testimoni di meraviglie inimmaginabili, e tutto ciò che potevano fare era
+                          sorridere alla stranezza e bellezza del loro viaggio. E così, mentre la notte cadeva su un
+                          mondo dove tutto era possibile, Pippo e Franco continuarono a navigare, chiedendosi quali
+                          altre avventure li aspettassero all'orizzonte.
                         </p>
                       </div>
                     </Col>
