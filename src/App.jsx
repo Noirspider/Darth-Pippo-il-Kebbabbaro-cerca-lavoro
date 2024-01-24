@@ -14,8 +14,16 @@ function App() {
           element={
             <>
               <MyNavBar />
-              {/* <MyProfile /> */}
               <MyHome />
+            </>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <MyNavBar />
+              <MyProfile />
             </>
           }
         />
