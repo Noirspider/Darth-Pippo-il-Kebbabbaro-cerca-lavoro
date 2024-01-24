@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchHomeAction, fetchPostHomeAction, fetchProfileAction } from "../redux/actions/actions";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import HomeDeleteModal from "./HomeDeleteModal";
 
 function MyHome() {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ function MyHome() {
   const refreshPost = useSelector((state) => state.home.refreshPost);
 
   const [searchBarValue, setSearchBarValue] = useState("");
+
+  const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
+
+  const [selectedPostData, setSelectedPostData] = useState(null);
 
   useEffect(() => {
     dispatch(fetchProfileAction("65af7f33bd5d12001890d40a"));
@@ -23,17 +28,32 @@ function MyHome() {
 
   const handleAddPost = (e) => {
     e.preventDefault();
+
     if (searchBarValue != "") {
       const objectToPost = {
         text: searchBarValue,
       };
+
       dispatch(fetchPostHomeAction(objectToPost));
       setSearchBarValue("");
     }
   };
 
+  const handleHomeDeleteModal = (post) => {
+    setSelectedPostData(post);
+    setShowHomeDeleteModal(true);
+  };
+
+  const handleClose = () => {
+    setSelectedPostData(null);
+    setShowHomeDeleteModal(false);
+  };
+
   return (
     <Container>
+      {selectedPostData && (
+        <HomeDeleteModal postData={selectedPostData} show={showHomeDeleteModal} handleClose={handleClose} />
+      )}
       <Row>
         {/* INIZIO PARTE SINISTRA */}
         <Col md={3}>
@@ -255,7 +275,7 @@ function MyHome() {
           {/* fine nuovo post */}
           {allPost && (
             <TransitionGroup className="row w-100 mt-3 ">
-              {allPost.slice(0, 20).map((post, index) => (
+              {allPost.slice(0, 20).map((post) => (
                 <CSSTransition key={post._id} timeout={300} classNames="fade">
                   <Col xs={12} className=" mb-3">
                     <Card className="rounded rounded-3">
@@ -285,7 +305,7 @@ function MyHome() {
                           <Col xs={2}>
                             <div className=" d-flex flex-column text-end">
                               <i className="bi bi-three-dots fs-5"></i>
-                              <i className="bi bi-x-lg fs-5"></i>
+                              <i className="bi bi-x-lg fs-5" onClick={() => handleHomeDeleteModal(post)}></i>
                             </div>
                           </Col>
                         </Row>
