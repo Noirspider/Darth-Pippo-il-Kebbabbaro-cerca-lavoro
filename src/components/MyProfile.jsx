@@ -57,7 +57,7 @@ function MyProfile() {
   return (
     <Container>
       <Row className="justify-content-center ">
-        <Col xs={12} md={9} className="d-flex flex-column align-items-center">
+        <Col xs={12} md={7} className="d-flex flex-column align-items-center">
           {/* INIZIO CARD PROFILO */}
           <Row className="w-100">
             <Col>

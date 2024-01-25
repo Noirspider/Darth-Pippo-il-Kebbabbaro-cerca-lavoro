@@ -72,7 +72,7 @@ function MyHome() {
       {selectedPostData && (
         <HomePutModal postData={selectedPostData} show={showHomePutModal} handleClose={handleClose} />
       )}
-      <Row>
+      <Row className="d-flex justify-content-center">
         {/* INIZIO PARTE SINISTRA */}
         <Col md={2}>
           <Row>
@@ -218,7 +218,7 @@ function MyHome() {
         </Col>
         {/* FINE PARTE SINISTRA */}
         {/* INIZIO PARTE CENTRALE */}
-        <Col md={7} className="d-flex flex-column align-items-center">
+        <Col md={5} className="d-flex flex-column align-items-center">
           {/* INIZIO --- */}
           {/* inizio nuovo post */}
           <Row className="w-100 mt-3">
