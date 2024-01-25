@@ -8,6 +8,7 @@ import ExperienceModal from "./ExperiencePutModal";
 import ExperienceDeleteModal from "./ExperienceDeleteModal";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ExperiencePostModal from "./ExperiencePostModal";
+import ProfilePictureModal from "./ProfilePictureModal";
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -28,14 +29,13 @@ function MyProfile() {
   const [showExperienceModal, setShowExperienceModal] = useState(false);
   const [showExperiencePostModal, setShowExperiencePostModal] = useState(false);
   const [showExperienceDeleteModal, setShowExperienceDeleteModal] = useState(false);
+  const [showProfilePictureModal, setShowProfilePictureModal] = useState(false);
 
   const [experienceData, setExperienceData] = useState(null);
 
   const handleProfileModal = () => setShowProfileModal(true);
-
-  const handleExperiencePostModal = () => {
-    setShowExperiencePostModal(true);
-  };
+  const handleProfilePictureModal = () => setShowProfilePictureModal(true);
+  const handleExperiencePostModal = () => setShowExperiencePostModal(true);
 
   const handleExperienceDeleteModal = (exp) => {
     setExperienceData(exp);
@@ -45,13 +45,13 @@ function MyProfile() {
     setExperienceData(exp);
     setShowExperienceModal(true);
   };
-
   const handleClose = () => {
     setExperienceData(null);
     setShowProfileModal(false);
     setShowExperienceModal(false);
     setShowExperienceDeleteModal(false);
     setShowExperiencePostModal(false);
+    setShowProfilePictureModal(false);
   };
 
   return (
@@ -83,14 +83,14 @@ function MyProfile() {
                             <i
                               className="bi bi-pencil-square  cursor-pointer fs-4 position-absolute text-gray-800"
                               style={{ bottom: "25px", right: "-170px" }}
-                            >
-                              {" "}
-                            </i>
+                              onClick={handleProfilePictureModal}
+                            ></i>
                           </div>
                           <div>
                             <button className=" border-0 bg-white" onClick={handleProfileModal}>
                               <i className="bi bi-pencil fs-5"> </i>
                             </button>
+                            <ProfilePictureModal show={showProfilePictureModal} handleClose={handleClose} />
                             <MyModal show={showProfileModal} handleClose={handleClose} />
                           </div>
                         </Col>
