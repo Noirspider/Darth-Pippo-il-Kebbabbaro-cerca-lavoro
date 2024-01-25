@@ -51,7 +51,7 @@ function ProfilePictureModal({ show, handleClose }) {
           <Modal.Body>
             <Form.Group controlId="formFile" className="mb-3">
               <Form.Label>Choose a profile picture</Form.Label>
-              <Form.Control type="file" onChange={(e) => setImageData(e.target.files[0])} />
+              <Form.Control type="file" accept="image/*" onChange={(e) => setImageData(e.target.files[0])} />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
