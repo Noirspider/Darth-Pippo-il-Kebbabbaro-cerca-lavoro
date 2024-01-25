@@ -12,9 +12,10 @@ function MyJobs() {
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    if (!params.searchquery) dispatch(fetchJobsAction());
-    else dispatch(fetchJobsAction(params.searchquery));
-  }, [params.searchquery]);
+    if (params.searchquery) dispatch(fetchJobsAction("search", params.searchquery));
+    else if (params.searchcompany) dispatch(fetchJobsAction("company", params.searchcompany));
+    else dispatch(fetchJobsAction());
+  }, [params.searchquery, params.searchcompany]);
 
   return (
     <Container>
