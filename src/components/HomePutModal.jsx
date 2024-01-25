@@ -35,7 +35,14 @@ function HomePutModal({ postData, show, handleClose }) {
           <Modal.Body>
             <Form.Group controlId="formDescription">
               <Form.Label>Post Content</Form.Label>
-              <Form.Control as="textarea" name="postText" value={inputValue} onChange={handleInputValue} required />
+              <Form.Control
+                autoFocus
+                as="textarea"
+                name="postText"
+                value={inputValue}
+                onChange={handleInputValue}
+                required
+              />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
