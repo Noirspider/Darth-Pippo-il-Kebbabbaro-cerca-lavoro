@@ -12,7 +12,7 @@ function MyNavBar() {
     <Navbar expand="lg" className="bg-body-tertiary position-sticky top-0 z-3 py-0 mt-1 pt-1">
       <Container style={{ minWidth: "350px" }}>
         <div className="d-flex flex-nowrap">
-          <Navbar.Brand href="#" className="p-0">
+          <Navbar.Brand href="/" className="p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ function MyNavBar() {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="ms-auto my-2 my-lg-0 flex-row  flex-wrap" /* style={{ maxHeight: "100px" }} */ navbarScroll>
             <div className="text-center">
-              <Nav.Link href="#action1" className="  py-0">
+              <Nav.Link href="/" className="  py-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ function MyNavBar() {
               id="navbarScrollingDropdown"
               className="custom-dropdown"
             >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="/profile">Visualizza profilo</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
