@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchJobsAction } from "../redux/actions/actions";
 
 function MyJobs() {
   const dispatch = useDispatch();
   const jobsList = useSelector((state) => state.jobs.jobsList);
+  const params = useParams();
 
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchJobsAction());
-  }, []);
+    if (!params.searchquery) dispatch(fetchJobsAction());
+    else dispatch(fetchJobsAction(params.searchquery));
+  }, [params.searchquery]);
 
   return (
     <Container>

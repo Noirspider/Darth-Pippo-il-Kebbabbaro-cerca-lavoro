@@ -219,22 +219,24 @@ export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) =
   }
 };
 /* FETCH GET JOBS */
-export const fetchJobsAction = () => async (dispatch) => {
-  try {
-    const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?limit=20", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+export const fetchJobsAction =
+  (query = "") =>
+  async (dispatch) => {
+    try {
+      const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?limit=20&search=" + query, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (response.ok) {
-      const { data } = await response.json();
-      dispatch(setJobsList(data));
-    } else {
-      throw new Error("Errore nel recupero dei risultati");
+      if (response.ok) {
+        const { data } = await response.json();
+        dispatch(setJobsList(data));
+      } else {
+        throw new Error("Errore nel recupero dei risultati");
+      }
+    } catch (error) {
+      console.error("Errore nel fetch:", error.message);
     }
-  } catch (error) {
-    console.error("Errore nel fetch:", error.message);
-  }
-};
+  };

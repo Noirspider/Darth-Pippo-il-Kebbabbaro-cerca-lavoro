@@ -30,7 +30,7 @@ function App() {
           }
         />
         <Route
-          path="/jobs/:searchQuery"
+          path="/jobs/:searchquery"
           element={
             <>
               <MyNavBar />
