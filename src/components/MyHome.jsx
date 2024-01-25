@@ -338,9 +338,10 @@ function MyHome() {
                             </p> */}
                             </div>
                           </Col>
-                          <Col xs={2}>
+                          <Col className=" col-auto">
                             {myProfile._id && post.user._id && myProfile._id == post.user._id ? (
-                              <div className=" d-flex flex-column text-end">
+                              <div className=" d-flex  text-end gap-2">
+                                <i class="bi bi-card-image fs-5 icon-media-post"></i>
                                 <i
                                   className="bi bi-three-dots fs-5 icon-put-post"
                                   onClick={() => handleHomePutModal(post)}

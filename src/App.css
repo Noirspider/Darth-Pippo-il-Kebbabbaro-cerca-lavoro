@@ -39,6 +39,12 @@ body {
   cursor: pointer;
   scale: 1.2;
 }
+.icon-media-post:hover {
+  transition: all 0.3s;
+  color: rgb(18, 188, 18) !important;
+  cursor: pointer;
+  scale: 1.2;
+}
 .icon-put-post:hover {
   transition: all 0.3s;
   color: #0d6efd !important;
