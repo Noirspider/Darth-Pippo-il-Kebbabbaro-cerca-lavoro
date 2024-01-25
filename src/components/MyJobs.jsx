@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchJobsAction } from "../redux/actions/actions";
 
 function MyJobs() {
+  const dispatch = useDispatch();
+  const jobsList = useSelector((state) => state.jobs.jobsList);
+
+  const [selectedJob, setSelectedJob] = useState(null);
+
+  useEffect(() => {
+    dispatch(fetchJobsAction());
+  }, []);
+
   return (
     <Container>
       <Row className="d-flex justify-content-center">
@@ -68,75 +79,49 @@ function MyJobs() {
                   </Col>
                 </Row>
 
-                <Row>
-                  <Col xs={1}>
-                    <div>
-                      <img
-                        src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
-                        alt=""
-                        className=" fix-h-50"
-                      />
-                    </div>
-                    <img src="" alt="" />
-                  </Col>
-                  <Col>
-                    <div className="ms-2">
-                      <p className="small fw-semibold m-0">Sviluppatore Java</p>
-                      <p className=" fs-7 text-gray-600 m-0">Pippo Enterprise</p>
-                      <p className=" fs-7 text-gray-600 m-0">Roma, Lazio, Italia</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        data-supported-dps="24x24"
-                        fill="#0F7D59"
-                        className="mercado-match me-1"
-                        width="24"
-                        height="24"
-                        focusable="false"
-                      >
-                        <path d="M12 20a8 8 0 010-16 7.91 7.91 0 014.9 1.69l-1.43 1.42a6 6 0 101.42 1.42l3.82-3.82a1 1 0 000-1.41A1 1 0 0020 3a1 1 0 00-.7.29l-1 1A10 10 0 1022 12h-2a8 8 0 01-8 8zm5-8a5 5 0 11-5-5 4.93 4.93 0 012.76.82l-2.24 2.24A2.24 2.24 0 0012 10a2 2 0 102 2 2.24 2.24 0 00-.07-.51l2.24-2.24A5 5 0 0117 12z"></path>
-                      </svg>
-                      <span className="fs-8 text-gray-600">Selezione attiva</span>
-                      <p className="fs-8 fw-bold text-green-500">10 ore fa</p>
-                    </div>
-                  </Col>
-                  <Col xs={1}>
-                    <div>
-                      <i className="bi bi-x-lg fs-5 icon-delete-post"></i>
-                    </div>
-                  </Col>
-                </Row>
-                <hr />
-                <Row>
-                  <Col xs={1}>
-                    <div>
-                      <img
-                        src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
-                        alt=""
-                        className=" fix-h-50"
-                      />
-                    </div>
-                    <img src="" alt="" />
-                  </Col>
-                  <Col>
-                    <div className="ms-2">
-                      <p className="small fw-semibold m-0">React Developer</p>
-                      <p className=" fs-7 text-gray-600 m-0">The Dark Side Inc.</p>
-                      <p className=" fs-7 text-gray-600 m-0">Roma, Lazio, Italia</p>
-                      <i className="bi bi-check2-circle fs-4 text-green-400 me-1"></i>
+                {jobsList &&
+                  jobsList.map((jobs) => (
+                    <Row className=" mt-3">
+                      <Col className=" col-auto pe-0">
+                        <div>
+                          <img
+                            src="https://cdn.icon-icons.com/icons2/1377/PNG/512/imagexgeneric_92742.png"
+                            alt=""
+                            className=" fix-h-50"
+                          />
+                        </div>
+                        <img src="" alt="" />
+                      </Col>
+                      <Col>
+                        <div className="ms-2">
+                          <p className="small fw-semibold m-0">{jobs.title}</p>
+                          <p className=" fs-7 text-gray-600 m-0">{jobs.company_name}</p>
+                          <p className=" fs-7 text-gray-600 m-0">{jobs.candidate_required_location}</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            data-supported-dps="24x24"
+                            fill="#0F7D59"
+                            className="mercado-match me-1"
+                            width="24"
+                            height="24"
+                            focusable="false"
+                          >
+                            <path d="M12 20a8 8 0 010-16 7.91 7.91 0 014.9 1.69l-1.43 1.42a6 6 0 101.42 1.42l3.82-3.82a1 1 0 000-1.41A1 1 0 0020 3a1 1 0 00-.7.29l-1 1A10 10 0 1022 12h-2a8 8 0 01-8 8zm5-8a5 5 0 11-5-5 4.93 4.93 0 012.76.82l-2.24 2.24A2.24 2.24 0 0012 10a2 2 0 102 2 2.24 2.24 0 00-.07-.51l2.24-2.24A5 5 0 0117 12z"></path>
+                          </svg>
+                          <span className="fs-8 text-gray-600">Selezione attiva</span>
+                          <p className="fs-8 fw-bold text-green-500">{jobs.publication_date}</p>
+                        </div>
+                      </Col>
+                      <Col className=" col-auto ps-0">
+                        <div>
+                          <i className="bi bi-x-lg fs-5 icon-delete-post"></i>
+                        </div>
+                      </Col>
+                      <hr className=" mb-0" />
+                    </Row>
+                  ))}
 
-                      <span className="fs-8 text-gray-600">Solitamente il tempo di risposta è 4 giorni</span>
-                      <p className="fs-8 fw-bold text-green-500">20 ore fa</p>
-                    </div>
-                  </Col>
-                  <Col xs={1}>
-                    <div>
-                      <i className="bi bi-x-lg fs-5 icon-delete-post"></i>
-                    </div>
-                  </Col>
-                </Row>
-
-                <hr className="text-gray my-0" />
                 <Row className="border-top-5 border-black  hover-gray">
                   <Col xs={12} className="p-0 m-0 ">
                     <Link to={"/"} className=" text-decoration-none text-black">

@@ -61,3 +61,7 @@ body {
   opacity: 0.01;
   transition: all 300ms;
 }
+
+#jobsContainer:last-child(hr) {
+  display: none;
+}

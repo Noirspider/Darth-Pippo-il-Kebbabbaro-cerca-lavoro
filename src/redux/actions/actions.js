@@ -1,4 +1,5 @@
 import { refreshHomePost, setAllPost } from "../reducers/homePageReducer";
+import { setJobsList } from "../reducers/jobsReducer";
 import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
 const token = process.env.REACT_APP_TOKEN;
 /* FETCH GET PROFILE */
@@ -220,7 +221,7 @@ export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) =
 /* FETCH GET JOBS */
 export const fetchJobsAction = () => async (dispatch) => {
   try {
-    const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs", {
+    const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?limit=20", {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -228,8 +229,8 @@ export const fetchJobsAction = () => async (dispatch) => {
     });
 
     if (response.ok) {
-      const data = await response.json();
-      dispatch(setMyProfile(data));
+      const { data } = await response.json();
+      dispatch(setJobsList(data));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }
