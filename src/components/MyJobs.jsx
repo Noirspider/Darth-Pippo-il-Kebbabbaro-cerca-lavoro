@@ -146,107 +146,102 @@ function MyJobs() {
           </Col>
 
           {/* dettagli offerta: */}
-          <Col className={selectedJob ? "col-6 mb-3 dvh-100 overflow-y-auto mb-3 rounded-bottom-2 " : "col-0 d-none"}>
-            <Card className="rounded rounded-3">
-              <Card.Body className="pb-0">
-                <Row>
-                  <Col className="d-flex justify-content-between">
-                    <div className=" fs-7 text-gray-700">
-                      <h3 className=" h5 text-black">Sviluppatore Java (title)</h3>
-                      <span>company_name</span>
-                      <span> - </span>
-                      <span>Roma, Lazio, Italia</span>
-                      <span> - </span>
-                      <span className="fw-bold text-green-500">Ripubblicata: 10 ore fa</span>
-                      <span> - </span>
-                      <span className="text-gray-600">16 candidati</span>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="d-flex justify-content-between">
-                    <div>
-                      <div className="fs-7">
-                        <i className="bi bi-briefcase-fill fs-5 me-2"></i>
-                        <span className=" bg-green-100 px-1 rounded-1">In sede</span>
+          {selectedJob && (
+            <Col className={selectedJob ? "col-6 mb-3 dvh-100 overflow-y-auto mb-3 rounded-bottom-2 " : "col-0 d-none"}>
+              <Card className="rounded rounded-3">
+                <Card.Body className="pb-0">
+                  <Row>
+                    <Col className="d-flex justify-content-between">
+                      <div className=" fs-7 text-gray-700 w-100">
+                        <div className=" d-flex justify-content-between">
+                          <h3 className=" h5 text-black">{selectedJob.title}</h3>
+                          <i className="bi bi-x-lg fs-5 icon-delete-post" onClick={() => setSelectedJob(null)}></i>
+                        </div>
+                        <span>{selectedJob.company_name}</span>
                         <span> - </span>
-                        <span className=" bg-green-100 px-1 rounded-1">A tempo pieno</span>
+                        <span>{selectedJob.candidate_required_location}</span>
                         <span> - </span>
-                        <span>Esperienza minima</span>
-                      </div>
-                      <div className="fs-7">
-                        <i className="bi bi-building fs-5 me-2"></i>
-                        <span>Oltre 10.001 dipendenti</span>
+                        <span className="fw-bold text-green-500">{selectedJob.publication_date}</span>
                         <span> - </span>
-                        <span>Servizi ingegneristici</span>
+                        <span className="text-gray-600">16 candidati</span>
                       </div>
-                      <div className="fs-7">
-                        <i className="bi bi-people-fill fs-5 me-2"></i>
-                        <span>7 ex dipendenti lavorano qui</span>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="d-flex justify-content-between">
+                      <div>
+                        <div className="fs-7">
+                          <i className="bi bi-briefcase-fill fs-5 me-2"></i>
+                          <span className=" bg-green-100 px-1 rounded-1">In sede</span>
+                          <span> - </span>
+                          <span className=" bg-green-100 px-1 rounded-1">A tempo pieno</span>
+                          <span> - </span>
+                          <span>Esperienza minima</span>
+                        </div>
+                        <div className="fs-7">
+                          <i className="bi bi-building fs-5 me-2"></i>
+                          <span>Oltre 10.001 dipendenti</span>
+                          <span> - </span>
+                          <span>Servizi ingegneristici</span>
+                        </div>
+                        <div className="fs-7">
+                          <i className="bi bi-people-fill fs-5 me-2"></i>
+                          <span>7 ex dipendenti lavorano qui</span>
+                        </div>
+                        <div className="fs-7">
+                          <i className="bi bi-list-check fs-5 me-2"></i>
+                          <span>Competenze: Informatica, Ingegneria informatica e altre 2</span>
+                          <span> - </span>
+                          <span>Servizi ingegneristici</span>
+                        </div>
+                        <div className="fs-7">
+                          <i className="bi bi-shield-check fs-5 me-2"></i>
+                          <span>Visualizza le verifiche relative a questa offerta di lavoro. </span>
+                          <a href="#">Mostra tutto</a>
+                        </div>
+                        <div className="fs-7">
+                          <i className="bi bi-lightbulb fs-5 me-2"></i>
+                          <span>Vedi come ti posizioni rispetto a 7 candidati. </span>
+                          <a href="#">Prova Premium per 0 EUR</a>
+                        </div>
                       </div>
-                      <div className="fs-7">
-                        <i className="bi bi-list-check fs-5 me-2"></i>
-                        <span>Competenze: Informatica, Ingegneria informatica e altre 2</span>
-                        <span> - </span>
-                        <span>Servizi ingegneristici</span>
+                    </Col>
+                  </Row>
+                  <Row className="mt-3">
+                    <Col className="d-flex justify-content-between">
+                      <div>
+                        <Button variant="primary" className=" rounded-pill fw-semibold me-2 py-1 px-3">
+                          Candidati <i className="bi bi-box-arrow-up-right fs-7"></i>
+                        </Button>
+                        <Button variant="outline-primary" className=" rounded-pill fw-semibold py-1 px-3">
+                          Salva
+                        </Button>
                       </div>
-                      <div className="fs-7">
-                        <i className="bi bi-shield-check fs-5 me-2"></i>
-                        <span>Visualizza le verifiche relative a questa offerta di lavoro. </span>
-                        <a href="#">Mostra tutto</a>
+                    </Col>
+                  </Row>
+                  <Row className="mt-5">
+                    <Col className="d-flex justify-content-between">
+                      <div>
+                        <h5>Informazioni sull'offerta di lavoro</h5>
+                        <p className="fs-7" dangerouslySetInnerHTML={{ __html: selectedJob.description }}></p>
                       </div>
-                      <div className="fs-7">
-                        <i className="bi bi-lightbulb fs-5 me-2"></i>
-                        <span>Vedi come ti posizioni rispetto a 7 candidati. </span>
-                        <a href="#">Prova Premium per 0 EUR</a>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="mt-3">
-                  <Col className="d-flex justify-content-between">
-                    <div>
-                      <Button variant="primary" className=" rounded-pill fw-semibold me-2 py-1 px-3">
-                        Candidati <i className="bi bi-box-arrow-up-right fs-7"></i>
-                      </Button>
-                      <Button variant="outline-primary" className=" rounded-pill fw-semibold py-1 px-3">
-                        Salva
-                      </Button>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="mt-5">
-                  <Col className="d-flex justify-content-between">
-                    <div>
-                      <h5>Informazioni sull'offerta di lavoro</h5>
-                      <p className="fs-7">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laboriosam deleniti neque
-                        aperiam ab molestias tenetur fugit harum aliquid nulla, optio id excepturi esse dolore culpa
-                        saepe, hic provident modi odit. Magnam molestiae aspernatur eligendi corporis praesentium
-                        possimus labore nesciunt blanditiis aliquid quidem officiis voluptatibus, omnis perspiciatis
-                        ipsum quis sequi quia? Similique inventore soluta illo necessitatibus molestiae. Illum maiores,
-                        nihil neque totam voluptas aperiam facilis eius quidem, commodi vitae reprehenderit, ea
-                        consequatur quisquam ipsum omnis ex necessitatibus excepturi. Harum sit impedit dicta minus
-                        dolore libero, voluptas, dolor vitae aperiam pariatur ipsum similique rerum! Ad, rem nihil quas
-                        maiores facilis itaque.
-                      </p>
-                    </div>
-                  </Col>
-                </Row>
+                    </Col>
+                  </Row>
 
-                <hr className="text-gray my-0" />
-                <Row className="border-top-5 border-black  hover-gray">
-                  <Col xs={12} className="p-0 m-0 ">
-                    <Link to={"/"} className=" text-decoration-none text-black">
-                      <div className=" text-center py-2">
-                        <p className="d-inline">Visualizza altro</p>
-                      </div>
-                    </Link>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
-          </Col>
+                  <hr className="text-gray my-0" />
+                  <Row className="border-top-5 border-black  hover-gray">
+                    <Col xs={12} className="p-0 m-0 ">
+                      <Link to={"/"} className=" text-decoration-none text-black">
+                        <div className=" text-center py-2">
+                          <p className="d-inline">Visualizza altro</p>
+                        </div>
+                      </Link>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Col>
+          )}
         </Col>
         {/* FINE PARTE CENTRALE */}
         {/* INIZIO PARTE DESTRA */}
