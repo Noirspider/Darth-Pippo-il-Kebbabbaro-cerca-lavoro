@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function MyHome() {
+function MyJobs() {
   return (
     <Container>
       <Row className="d-flex justify-content-center">
@@ -342,4 +342,4 @@ function MyHome() {
   );
 }
 
-export default MyHome;
+export default MyJobs;

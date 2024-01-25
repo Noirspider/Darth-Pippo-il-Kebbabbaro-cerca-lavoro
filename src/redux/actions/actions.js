@@ -217,3 +217,23 @@ export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) =
     console.error("Errore nel fetch:", error.message);
   }
 };
+/* FETCH GET JOBS */
+export const fetchJobsAction = () => async (dispatch) => {
+  try {
+    const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setMyProfile(data));
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};

@@ -339,7 +339,7 @@ function MyHome() {
                             </div>
                           </Col>
                           <Col xs={2}>
-                            {myProfile._id == post.user._id ? (
+                            {myProfile._id && post.user._id && myProfile._id == post.user._id ? (
                               <div className=" d-flex flex-column text-end">
                                 <i
                                   className="bi bi-three-dots fs-5 icon-put-post"

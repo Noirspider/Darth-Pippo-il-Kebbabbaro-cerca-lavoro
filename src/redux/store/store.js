@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 import stateReducer from "../reducers/stateReducer";
 import profileReducer from "../reducers/profileReducer";
 import homePageReducer from "../reducers/homePageReducer";
+import jobsReducer from "../reducers/jobsReducer";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   global: stateReducer,
   home: homePageReducer,
   profile: profileReducer,
+  jobs: jobsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
