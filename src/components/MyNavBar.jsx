@@ -68,7 +68,7 @@ function MyNavBar() {
               </svg>{" "}
               <p className="fs-7 mb-0">Rete</p>
             </Nav.Link>
-            <Nav.Link href="#action3" className=" text-center py-0">
+            <Nav.Link href="/jobs" className=" text-center py-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
