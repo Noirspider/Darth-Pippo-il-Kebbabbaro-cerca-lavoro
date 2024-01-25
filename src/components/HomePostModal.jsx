@@ -29,7 +29,7 @@ function HomePutModal({ show, handleClose }) {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const onEmojiClick = (event, emojiObject) => {
+  const onEmojiClick = (event) => {
     setInputValue((prevInput) => prevInput + event.emoji);
     toggleEmojiPicker();
 

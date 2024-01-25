@@ -64,8 +64,9 @@ body {
 }
 
 .job-hover:hover {
-  color: #0d6efd;
+  color: #0d6efd !important;
   text-decoration: underline;
+  cursor: pointer;
 }
 .dvh-100 {
   height: 90dvh;

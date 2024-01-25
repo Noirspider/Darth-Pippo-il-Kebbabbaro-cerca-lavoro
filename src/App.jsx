@@ -39,6 +39,15 @@ function App() {
           }
         />
         <Route
+          path="/jobs/company/:searchcompany"
+          element={
+            <>
+              <MyNavBar />
+              <MyJobs />
+            </>
+          }
+        />
+        <Route
           path="/profile"
           element={
             <>

@@ -106,7 +106,7 @@ function MyJobs() {
                           <p className="job-hover small fw-semibold m-0" onClick={() => setSelectedJob(job)}>
                             {job.title}
                           </p>
-                          <p className=" fs-7 text-gray-600 m-0">{job.company_name}</p>
+                          <p className="job-hover fs-7 text-gray-600 m-0">{job.company_name}</p>
                           <p className=" fs-7 text-gray-600 m-0">{job.candidate_required_location}</p>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
