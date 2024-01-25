@@ -6,6 +6,7 @@ import { fetchHomeAction, fetchPostHomeAction, fetchProfileAction } from "../red
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HomeDeleteModal from "./HomeDeleteModal";
 import HomePutModal from "./HomePutModal";
+import HomePostModal from "./HomePostModal";
 
 function MyHome() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function MyHome() {
 
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomePutModal, setShowHomePutModal] = useState(false);
+  const [showHomePostModal, setShowHomePostModal] = useState(false);
 
   const [selectedPostData, setSelectedPostData] = useState(null);
 
@@ -62,6 +64,7 @@ function MyHome() {
     setSelectedPostData(null);
     setShowHomeDeleteModal(false);
     setShowHomePutModal(false);
+    setShowHomePostModal(false);
   };
 
   return (
@@ -72,6 +75,9 @@ function MyHome() {
       {selectedPostData && (
         <HomePutModal postData={selectedPostData} show={showHomePutModal} handleClose={handleClose} />
       )}
+
+      <HomePostModal show={showHomePostModal} handleClose={handleClose} />
+
       <Row className="d-flex justify-content-center">
         {/* INIZIO PARTE SINISTRA */}
         <Col md={2}>
@@ -239,11 +245,13 @@ function MyHome() {
                         </div>
                       )}
                     </Col>
+
                     <Col>
                       <div className="px-1">
+                        {/* 
                         <Form onSubmit={handleAddPost}>
                           <Form.Group>
-                            {/* <Form.Label></Form.Label> */}
+                           -- <Form.Label></Form.Label> --
                             <Form.Control
                               value={searchBarValue}
                               onChange={(e) => setSearchBarValue(e.target.value)}
@@ -253,6 +261,16 @@ function MyHome() {
                             />
                           </Form.Group>
                         </Form>
+*/}
+
+                        {/* Componente modale */}
+
+                        <div
+                          className="w-100 rounded-5 border border-1 border-gray-400 text-gray-600 p-2 fw-semibold hover-gray"
+                          onClick={() => setShowHomePostModal(true)}
+                        >
+                          Avvia un post
+                        </div>
                       </div>
                     </Col>
                   </Row>
