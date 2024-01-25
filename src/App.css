@@ -63,6 +63,10 @@ body {
   transition: all 300ms;
 }
 
-#jobsContainer:last-child(hr) {
-  display: none;
+.job-hover:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+.dvh-100 {
+  height: 90dvh;
 }

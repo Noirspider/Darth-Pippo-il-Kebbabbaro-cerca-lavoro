@@ -18,7 +18,7 @@ function MyJobs() {
     <Container>
       <Row className="d-flex justify-content-center">
         {/* INIZIO PARTE SINISTRA */}
-        <Col md={2}>
+        <Col className={selectedJob ? "col-0 d-none" : "col-md-2"}>
           <Row>
             <Col>
               <div className="fs-1 mt-3 w-100">
@@ -62,10 +62,17 @@ function MyJobs() {
         </Col>
         {/* FINE PARTE SINISTRA */}
         {/* INIZIO PARTE CENTRALE */}
-        <Col md={5} className="d-flex flex-column align-items-center mt-3">
+        <Col
+          md={5}
+          className={
+            selectedJob
+              ? "col-12 w-100 d-flex align-items-center mt-3"
+              : "col-md-5 d-flex flex-column align-items-center mt-3"
+          }
+        >
           {/* INIZIO --- */}
 
-          <Col xs={12} className=" mb-3">
+          <Col className={selectedJob ? "col-6 mb-3 dvh-100 overflow-y-auto rounded-bottom-2 " : "col-12 mb-10"}>
             <Card className="rounded rounded-3">
               <Card.Body className="pb-0">
                 <Row>
@@ -80,8 +87,8 @@ function MyJobs() {
                 </Row>
 
                 {jobsList &&
-                  jobsList.map((jobs) => (
-                    <Row className=" mt-3">
+                  jobsList.map((job) => (
+                    <Row key={job._id} className=" mt-3">
                       <Col className=" col-auto pe-0">
                         <div>
                           <img
@@ -94,9 +101,11 @@ function MyJobs() {
                       </Col>
                       <Col>
                         <div className="ms-2">
-                          <p className="small fw-semibold m-0">{jobs.title}</p>
-                          <p className=" fs-7 text-gray-600 m-0">{jobs.company_name}</p>
-                          <p className=" fs-7 text-gray-600 m-0">{jobs.candidate_required_location}</p>
+                          <p className="job-hover small fw-semibold m-0" onClick={() => setSelectedJob(job)}>
+                            {job.title}
+                          </p>
+                          <p className=" fs-7 text-gray-600 m-0">{job.company_name}</p>
+                          <p className=" fs-7 text-gray-600 m-0">{job.candidate_required_location}</p>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -110,7 +119,7 @@ function MyJobs() {
                             <path d="M12 20a8 8 0 010-16 7.91 7.91 0 014.9 1.69l-1.43 1.42a6 6 0 101.42 1.42l3.82-3.82a1 1 0 000-1.41A1 1 0 0020 3a1 1 0 00-.7.29l-1 1A10 10 0 1022 12h-2a8 8 0 01-8 8zm5-8a5 5 0 11-5-5 4.93 4.93 0 012.76.82l-2.24 2.24A2.24 2.24 0 0012 10a2 2 0 102 2 2.24 2.24 0 00-.07-.51l2.24-2.24A5 5 0 0117 12z"></path>
                           </svg>
                           <span className="fs-8 text-gray-600">Selezione attiva</span>
-                          <p className="fs-8 fw-bold text-green-500">{jobs.publication_date}</p>
+                          <p className="fs-8 fw-bold text-green-500">{job.publication_date}</p>
                         </div>
                       </Col>
                       <Col className=" col-auto ps-0">
@@ -137,7 +146,7 @@ function MyJobs() {
           </Col>
 
           {/* dettagli offerta: */}
-          <Col xs={12} className=" mb-3">
+          <Col className={selectedJob ? "col-6 mb-3 dvh-100 overflow-y-auto mb-3 rounded-bottom-2 " : "col-0 d-none"}>
             <Card className="rounded rounded-3">
               <Card.Body className="pb-0">
                 <Row>
@@ -241,7 +250,7 @@ function MyJobs() {
         </Col>
         {/* FINE PARTE CENTRALE */}
         {/* INIZIO PARTE DESTRA */}
-        <Col xs={0} md={3}>
+        <Col xs={0} md={3} className={selectedJob ? "col-0 d-none" : "col-0 col-md-3"}>
           <Row className="my-3">
             {" "}
             <Col>
