@@ -30,8 +30,10 @@ function HomePutModal({ show, handleClose }) {
   };
 
   const onEmojiClick = (event, emojiObject) => {
-    setInputValue((prevInput) => prevInput + emojiObject.emoji);
+    setInputValue((prevInput) => prevInput + event.emoji);
     toggleEmojiPicker();
+
+    console.log(event.emoji);
   };
 
   return (
