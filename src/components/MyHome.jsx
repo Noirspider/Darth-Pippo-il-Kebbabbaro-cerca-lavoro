@@ -74,7 +74,7 @@ function MyHome() {
       )}
       <Row>
         {/* INIZIO PARTE SINISTRA */}
-        <Col md={3}>
+        <Col md={2}>
           <Row>
             <Col>
               <div className="fs-1 mt-3 w-100">
@@ -218,7 +218,7 @@ function MyHome() {
         </Col>
         {/* FINE PARTE SINISTRA */}
         {/* INIZIO PARTE CENTRALE */}
-        <Col md={5} className="d-flex flex-column align-items-center">
+        <Col md={7} className="d-flex flex-column align-items-center">
           {/* INIZIO --- */}
           {/* inizio nuovo post */}
           <Row className="w-100 mt-3">
@@ -389,7 +389,7 @@ function MyHome() {
         </Col>
         {/* FINE PARTE CENTRALE */}
         {/* INIZIO PARTE DESTRA */}
-        <Col xs={0} md={4}>
+        <Col xs={0} md={3}>
           <Row className=" mt-3">
             <Col xs={12}>
               <div className=" d-flex justify-content-between">
