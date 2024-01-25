@@ -80,6 +80,12 @@ function MyProfile() {
                               className="object-fit-cover position-absolute border border-4 border-white"
                               style={{ height: "152px", width: "152px", top: "-105px" }}
                             />
+                            <i
+                              className="bi bi-pencil-square  cursor-pointer fs-4 position-absolute text-gray-800"
+                              style={{ bottom: "25px", right: "-170px" }}
+                            >
+                              {" "}
+                            </i>
                           </div>
                           <div>
                             <button className=" border-0 bg-white" onClick={handleProfileModal}>
