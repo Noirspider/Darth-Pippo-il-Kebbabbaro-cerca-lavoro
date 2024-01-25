@@ -352,7 +352,7 @@ function MyHome() {
                             {myProfile._id && post.user._id && myProfile._id == post.user._id ? (
                               <div className=" d-flex  text-end gap-2">
                                 <i
-                                  class="bi bi-card-image fs-5 icon-media-post"
+                                  className="bi bi-card-image fs-5 icon-media-post"
                                   onClick={() => handleHomePictureModal(post)}
                                 ></i>
                                 <i
@@ -373,6 +373,7 @@ function MyHome() {
                         <Row>
                           <Col xs={12}>
                             <div>
+                              {post.image && <img src={post.image} className=" w-100 rounded" alt="postImage" />}
                               <p className="fs-7">{post.text}</p>
                             </div>
                           </Col>
