@@ -1,5 +1,6 @@
 import "./assets/css/mybootstrap.min.css";
 import "./App.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyProfile from "./components/MyProfile";
 import MyNavBar from "./components/MyNavBar";
@@ -21,6 +22,15 @@ function App() {
         />
         <Route
           path="/jobs"
+          element={
+            <>
+              <MyNavBar />
+              <MyJobs />
+            </>
+          }
+        />
+        <Route
+          path="/jobs/:searchQuery"
           element={
             <>
               <MyNavBar />

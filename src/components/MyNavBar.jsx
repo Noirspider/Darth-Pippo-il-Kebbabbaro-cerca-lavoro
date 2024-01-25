@@ -1,13 +1,20 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import { useNavigate } from "react-router";
 
 function MyNavBar() {
+  const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmitSearchBar = (e) => {
+    e.preventDefault();
+    navigate("/jobs/" + inputValue);
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary position-sticky top-0 z-3 py-0 mt-1 pt-1">
       <Container style={{ minWidth: "350px" }}>
@@ -27,8 +34,15 @@ function MyNavBar() {
             </svg>
           </Navbar.Brand>
 
-          <Form className="d-flex me-auto">
-            <Form.Control type="search" placeholder="Search" className=" py-0" aria-label="Search" />
+          <Form onSubmit={handleSubmitSearchBar} className="d-flex me-auto">
+            <Form.Control
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              type="search"
+              placeholder="Search"
+              className=" py-0"
+              aria-label="Search"
+            />
           </Form>
         </div>
 
