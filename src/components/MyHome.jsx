@@ -20,8 +20,16 @@ function MyHome() {
 
   const [selectedPostData, setSelectedPostData] = useState(null);
 
+  const [fetchTimer, setFetchTimer] = useState(null);
+
   useEffect(() => {
     dispatch(fetchProfileAction());
+
+    setFetchTimer(
+      setInterval(() => {
+        dispatch(fetchHomeAction());
+      }, 10000)
+    );
   }, []);
 
   useEffect(() => {
