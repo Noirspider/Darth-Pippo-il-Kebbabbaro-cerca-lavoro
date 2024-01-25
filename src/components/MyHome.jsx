@@ -103,7 +103,7 @@ function MyHome() {
                   />
                   <Card.Body className=" pt-0">
                     <Row>
-                      <Col className=" ">
+                      <Col>
                         <div className=" position-relative d-flex justify-content-center">
                           {myProfile && (
                             <Image
@@ -166,7 +166,7 @@ function MyHome() {
           {/* --- */}
           <Row>
             <Col>
-              <div className="mt-3 w-100">
+              <div className="mt-2 w-100">
                 <Card className=" rounded rounded-3">
                   <Card.Body>
                     <Row className="fs-7">
@@ -520,115 +520,129 @@ function MyHome() {
         {/* FINE PARTE CENTRALE */}
         {/* INIZIO PARTE DESTRA */}
         <Col xs={0} md={3}>
-          <Row className=" mt-3">
-            <Col xs={12}>
-              <div className=" d-flex justify-content-between">
-                <div>
-                  {" "}
-                  <h3 className="h5">LinkedIn Notizie</h3>
-                  <ul>
-                    <li className="fw-semibold">I 15 lavori in più rapida crescita</li>
-                    <span className="text-gray small">Notizie principali</span>
-                    <li className="fw-semibold">Cercare lavoro nella tecnologia</li>
-                    <span className="text-gray small">1 giorno fa</span>
-                    <li className="fw-semibold">Le città dei lavori in crescita</li>
-                    <span className="text-gray small">23 ore fa</span>
-                  </ul>
-                </div>
+          <Row className="mt-3">
+            <Col xs={12} className="mb-2">
+              <Card>
+                {" "}
+                <Card.Body>
+                  <div className=" d-flex justify-content-between">
+                    <div>
+                      {" "}
+                      <h3 className="h5">LinkedIn Notizie</h3>
+                      <ul>
+                        <li className="fw-semibold">I 15 lavori in più rapida crescita</li>
+                        <span className="text-gray small">Notizie principali</span>
+                        <li className="fw-semibold">Cercare lavoro nella tecnologia</li>
+                        <span className="text-gray small">1 giorno fa</span>
+                        <li className="fw-semibold">Le città dei lavori in crescita</li>
+                        <span className="text-gray small">23 ore fa</span>
+                      </ul>
+                    </div>
 
-                <div>
-                  <i className="bi bi-info-square-fill"></i>
-                </div>
-              </div>
+                    <div>
+                      <i className="bi bi-info-square-fill"></i>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
             </Col>
-            <hr />
           </Row>
           <div className=" position-sticky" style={{ top: "75px" }}>
             <Row>
-              <Col xs={12}>
-                <div>
-                  <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className=" w-100" />
-                </div>
+              <Col xs={12} className="mb-2">
+                <Card>
+                  {" "}
+                  <Card.Body>
+                    <div>
+                      <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className=" w-100" />
+                    </div>
+                  </Card.Body>
+                </Card>
               </Col>
-            </Row>
-            <Row className="my-2">
-              {" "}
-              <Col>
-                <div>
-                  <ul className="d-flex list-unstyled justify-content-center align-content-center flex-wrap">
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-darkgray small text-decoration-none my-4 mx-8">
-                        <span>Informazioni</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Accessibilità</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Centro assistenza</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Privacy e condizioni</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Opzioni per gli annunci pubblicitari</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Pubblicità</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Servizi alle aziende</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Scarica l'app LinkedIn</span>
-                      </a>
-                    </li>
-                    <li style={{ margin: "4px 8px" }}>
-                      <a href="#" className="text-gray small text-decoration-none">
-                        <span>Altro</span>
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="  d-flex justify-content-center align-items-center">
-                    <svg
-                      role="img"
-                      aria-hidden="false"
-                      aria-label="LinkedIn"
-                      className="global-footer-compact__linkedin-logo mx-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="56"
-                      height="14"
-                      viewBox="0 0 56 14"
-                      data-supported-dps="56x14"
-                      data-test-icon="linkedin-logo-blue-xxsmall"
-                    >
-                      <svg display="var(--hue-web-svg-display-light)">
-                        <image
-                          href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr"
-                          x="0"
-                          y="0"
+
+              <Col xs={12}>
+                <Card>
+                  {" "}
+                  <Card.Body>
+                    <div>
+                      <ul className="d-flex list-unstyled justify-content-center align-content-center flex-wrap">
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-darkgray small text-decoration-none my-4 mx-8">
+                            <span>Informazioni</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Accessibilità</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Centro assistenza</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Privacy e condizioni</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Opzioni per gli annunci pubblicitari</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Pubblicità</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Servizi alle aziende</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Scarica l'app LinkedIn</span>
+                          </a>
+                        </li>
+                        <li style={{ margin: "4px 8px" }}>
+                          <a href="#" className="text-gray small text-decoration-none">
+                            <span>Altro</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div className="  d-flex justify-content-center align-items-center">
+                        <svg
+                          role="img"
+                          aria-hidden="false"
+                          aria-label="LinkedIn"
+                          className="global-footer-compact__linkedin-logo mx-1"
+                          xmlns="http://www.w3.org/2000/svg"
                           width="56"
                           height="14"
-                        ></image>
-                      </svg>
-                    </svg>
-                    LinkedIn Corporation © 2024
-                  </div>
-                </div>
+                          viewBox="0 0 56 14"
+                          data-supported-dps="56x14"
+                          data-test-icon="linkedin-logo-blue-xxsmall"
+                        >
+                          <svg display="var(--hue-web-svg-display-light)">
+                            <image
+                              href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr"
+                              x="0"
+                              y="0"
+                              width="56"
+                              height="14"
+                            ></image>
+                          </svg>
+                        </svg>
+                        LinkedIn Corporation © 2024
+                      </div>
+                    </div>
+                  </Card.Body>
+                </Card>
               </Col>
+
+              <hr />
             </Row>
           </div>
         </Col>
