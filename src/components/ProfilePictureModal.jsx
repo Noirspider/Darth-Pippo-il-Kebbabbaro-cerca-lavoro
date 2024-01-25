@@ -25,8 +25,7 @@ function ProfilePictureModal({ show, handleClose }) {
         method: "POST",
         body: formData,
         headers: {
-          Authorization: process.env.REACT_APP_TOKEN,
-          "Content-Type": "multipart/form-data",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
         },
       });
       if (!response.ok) {

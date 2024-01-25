@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchHomeAction, fetchPostHomeAction, fetchProfileAction } from "../redux/actions/actions";
+import { fetchHomeAction, fetchProfileAction } from "../redux/actions/actions";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HomeDeleteModal from "./HomeDeleteModal";
 import HomePutModal from "./HomePutModal";
 import HomePostModal from "./HomePostModal";
+import PostPictureModal from "./PostPictureModal";
 
 function MyHome() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function MyHome() {
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomePutModal, setShowHomePutModal] = useState(false);
   const [showHomePostModal, setShowHomePostModal] = useState(false);
+  const [showHomePictureModal, setShowHomePictureModal] = useState(false);
 
   const [selectedPostData, setSelectedPostData] = useState(null);
 
@@ -38,7 +40,7 @@ function MyHome() {
     dispatch(fetchHomeAction());
   }, [refreshPost]);
 
-  const handleAddPost = (e) => {
+  /*   const handleAddPost = (e) => {
     e.preventDefault();
 
     if (searchBarValue != "") {
@@ -49,8 +51,12 @@ function MyHome() {
       dispatch(fetchPostHomeAction(objectToPost));
       setSearchBarValue("");
     }
-  };
+  }; */
 
+  const handleHomePictureModal = (post) => {
+    setSelectedPostData(post);
+    setShowHomePictureModal(true);
+  };
   const handleHomeDeleteModal = (post) => {
     setSelectedPostData(post);
     setShowHomeDeleteModal(true);
@@ -65,6 +71,7 @@ function MyHome() {
     setShowHomeDeleteModal(false);
     setShowHomePutModal(false);
     setShowHomePostModal(false);
+    setShowHomePictureModal(false);
   };
 
   return (
@@ -74,6 +81,9 @@ function MyHome() {
       )}
       {selectedPostData && (
         <HomePutModal postData={selectedPostData} show={showHomePutModal} handleClose={handleClose} />
+      )}
+      {selectedPostData && (
+        <PostPictureModal postData={selectedPostData} show={showHomePictureModal} handleClose={handleClose} />
       )}
 
       <HomePostModal show={showHomePostModal} handleClose={handleClose} />
@@ -341,7 +351,10 @@ function MyHome() {
                           <Col className=" col-auto">
                             {myProfile._id && post.user._id && myProfile._id == post.user._id ? (
                               <div className=" d-flex  text-end gap-2">
-                                <i class="bi bi-card-image fs-5 icon-media-post"></i>
+                                <i
+                                  class="bi bi-card-image fs-5 icon-media-post"
+                                  onClick={() => handleHomePictureModal(post)}
+                                ></i>
                                 <i
                                   className="bi bi-three-dots fs-5 icon-put-post"
                                   onClick={() => handleHomePutModal(post)}

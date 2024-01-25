@@ -1,42 +1,24 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form } from "react-bootstrap";
+import { fetchPostImageHomeAction } from "../redux/actions/actions";
 
-function PostPictureModal({ show, handleClose }) {
-  const myProfile = useSelector((state) => state.profile.myProfile);
-
+function PostPictureModal({ postData, show, handleClose }) {
   const [imageData, setImageData] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSaveChanges = async (e) => {
     e.preventDefault();
 
-    if (!imageData) {
-      return;
-    }
-    try {
-      // Create a FormData object to send the file
-      const formData = new FormData();
-      formData.append("profile", imageData);
+    const formData = new FormData();
+    formData.append("post", imageData);
 
-      // Make the POST request using fetch
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${myProfile._id}/picture`, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: process.env.REACT_APP_TOKEN,
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (!response.ok) {
-        throw new Error(`Failed to upload profile picture: ${response.statusText}`);
-      }
-      handleClose();
-    } catch (error) {
-      console.error("Error uploading profile picture:", error);
-    }
+    dispatch(fetchPostImageHomeAction(postData._id, formData));
+    handleClose();
   };
+
   const handleclosefile = () => {
     handleClose();
     setImageData(null);
@@ -51,8 +33,8 @@ function PostPictureModal({ show, handleClose }) {
         <Form onSubmit={handleSaveChanges}>
           <Modal.Body>
             <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Choose a profile picture</Form.Label>
-              <Form.Control type="file" onChange={(e) => setImageData(e.target.files[0])} />
+              <Form.Label>Image to post</Form.Label>
+              <Form.Control accept="image/*" type="file" onChange={(e) => setImageData(e.target.files[0])} />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>

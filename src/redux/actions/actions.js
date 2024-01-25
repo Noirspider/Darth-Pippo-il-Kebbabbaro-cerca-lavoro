@@ -253,3 +253,23 @@ export const fetchJobsAction =
       console.error("Errore nel fetch:", error.message);
     }
   };
+/* FETCH POST IMAGE ON POST */
+export const fetchPostImageHomeAction = (idPost, formData) => async (dispatch) => {
+  try {
+    // Make the POST request using fetch
+    const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/` + idPost, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      dispatch(refreshHomePost());
+    } else {
+      throw new Error(`Failed to upload profile picture: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error("Error uploading profile picture:", error);
+  }
+};
