@@ -21,7 +21,7 @@ function HomePutModal({ show, handleClose }) {
     };
 
     dispatch(fetchPostHomeAction(newPost));
-
+    setInputValue("");
     handleClose();
   };
 

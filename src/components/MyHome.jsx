@@ -87,8 +87,8 @@ function MyHome() {
                 <Card className=" rounded rounded-3">
                   <Card.Img
                     variant="top"
-                    src="https://pbs.twimg.com/media/CFFfwXrWgAA1rGe.jpg"
-                    className="object-fit-cover rounded rounded-top-3"
+                    src="https://media.licdn.com/dms/image/C4D12AQHMPBvE3avWzg/article-inline_image-shrink_1000_1488/0/1616872522462?e=1710979200&v=beta&t=hhn-eWVAK9wum9gmaZ8u5RRmJ03jBBRP2CaD4yQqqxA"
+                    className="object-fit-cover rounded rounded-bottom-0 rounded-top-3"
                     style={{ height: "56px", objectPosition: "0 16%" }}
                   />
                   <Card.Body className=" pt-0">
@@ -311,7 +311,7 @@ function MyHome() {
           {/* fine nuovo post */}
           {allPost && (
             <TransitionGroup className="row w-100 mt-3 ">
-              {allPost.slice(0, 20).map((post) => (
+              {allPost.map((post) => (
                 <CSSTransition key={post._id} timeout={300} classNames="fade">
                   <Col xs={12} className=" mb-3">
                     <Card className="rounded rounded-3">
