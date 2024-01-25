@@ -42,8 +42,16 @@ function HomePutModal({ show, handleClose }) {
         <Form onSubmit={handleSaveChanges}>
           <Modal.Body>
             <Form.Group controlId="formDescription">
-              <Form.Label>Post Content</Form.Label>
-              <Form.Control as="textarea" name="postText" value={inputValue} onChange={handleInputValue} required />
+              {/* Textarea */}
+              <Form.Control
+                as="textarea"
+                placeholder="Di cosa vorresti parlare?"
+                name="postText"
+                value={inputValue}
+                onChange={handleInputValue}
+                required
+                className="border-0"
+              />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className=" border-0 d-block">
