@@ -412,6 +412,103 @@ function MyHome() {
                             </Link>
                           </Col>
                         </Row>
+                        {/* AREA COMMENTI */}
+                        <Row>
+                          {/* aggiungi: */}
+                          <Col xs={12} className="d-flex">
+                            <Col className=" col-auto pe-0">
+                              {myProfile && (
+                                <div>
+                                  <Image
+                                    src={myProfile.image}
+                                    roundedCircle
+                                    className="object-fit-cover border border-2 border-white"
+                                    style={{ height: "48px", width: "48px" }}
+                                  />
+                                </div>
+                              )}
+                            </Col>
+
+                            <Col className="mb-4">
+                              <div className="px-1">
+                                <Form>
+                                  <Form.Group>
+                                    {/* -- <Form.Label></Form.Label> -- */}
+                                    <Form.Control
+                                      type="text"
+                                      className="rounded rounded-5 fs-7 fw-semibold py-2 mt-1"
+                                      placeholder="Aggiungi un commento..."
+                                    />
+                                  </Form.Group>
+                                </Form>
+                              </div>
+                            </Col>
+                          </Col>
+                          {/* commenti: */}
+                          {/* commento 1 */}
+                          <Col xs={12} className="d-flex mb-3">
+                            <Col className=" col-auto pe-1">
+                              {myProfile && (
+                                <div>
+                                  <Image
+                                    src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                                    roundedCircle
+                                    className="object-fit-cover border border-2 border-white"
+                                    style={{ height: "48px", width: "48px" }}
+                                  />
+                                </div>
+                              )}
+                            </Col>
+
+                            <Col>
+                              <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
+                                <div className="fs-6">
+                                  <p className="fw-semibold m-0">Nome</p>
+                                  <p className="fs-7 text-gray-600 m-0">Titolo</p>
+                                  <p className="small m-0 mt-1">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quisquam voluptate
+                                    fuga totam delectus consequuntur voluptates eligendi hic, sed quia!
+                                  </p>
+                                </div>
+                                <div>
+                                  <i className="bi bi-three-dots"></i>
+                                </div>
+                              </div>
+                            </Col>
+                          </Col>
+                          {/* commento 2 */}
+                          <Col xs={12} className="d-flex mb-3">
+                            <Col className=" col-auto pe-1">
+                              {myProfile && (
+                                <div>
+                                  <Image
+                                    src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                                    roundedCircle
+                                    className="object-fit-cover border border-2 border-white"
+                                    style={{ height: "48px", width: "48px" }}
+                                  />
+                                </div>
+                              )}
+                            </Col>
+
+                            <Col>
+                              <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
+                                <div className="fs-6">
+                                  <p className="fw-semibold m-0">Nome</p>
+                                  <p className="fs-7 text-gray-600 m-0">Titolo</p>
+                                  <p className="small m-0 mt-1">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quisquam voluptate
+                                    fuga totam delectus consequuntur voluptates eligendi hic, sed quia!
+                                  </p>
+                                </div>
+                                <div>
+                                  <i className="bi bi-three-dots"></i>
+                                </div>
+                              </div>
+                            </Col>
+                          </Col>
+                        </Row>
+                        {/* FINE AREA COMMENTI */}
                       </Card.Body>
                     </Card>
                   </Col>
