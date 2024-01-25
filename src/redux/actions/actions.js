@@ -220,10 +220,23 @@ export const fetchPutHomeAction = (idPost, myPostToUpdate) => async (dispatch) =
 };
 /* FETCH GET JOBS */
 export const fetchJobsAction =
-  (query = "") =>
+  (searchType = "", query = "") =>
   async (dispatch) => {
     try {
-      const response = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?limit=20&search=" + query, {
+      let url;
+      switch (searchType) {
+        case "company":
+          url = `https://strive-benchmark.herokuapp.com/api/jobs?company=${query}`;
+          break;
+        case "search":
+          url = `https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`;
+          break;
+        default:
+          url = `https://strive-benchmark.herokuapp.com/api/jobs`;
+          break;
+      }
+
+      const response = await fetch(url, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
