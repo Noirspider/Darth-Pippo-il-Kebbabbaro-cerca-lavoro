@@ -226,13 +226,13 @@ export const fetchJobsAction =
       let url;
       switch (searchType) {
         case "company":
-          url = `https://strive-benchmark.herokuapp.com/api/jobs?company=${query}`;
+          url = `https://strive-benchmark.herokuapp.com/api/jobs?limit=20&company=${query}`;
           break;
         case "search":
-          url = `https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`;
+          url = `https://strive-benchmark.herokuapp.com/api/jobs?limit=20&search=${query}`;
           break;
         default:
-          url = `https://strive-benchmark.herokuapp.com/api/jobs`;
+          url = `https://strive-benchmark.herokuapp.com/api/jobs?limit=20`;
           break;
       }
 
