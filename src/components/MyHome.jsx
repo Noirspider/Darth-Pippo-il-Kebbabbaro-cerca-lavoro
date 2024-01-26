@@ -414,9 +414,9 @@ function MyHome() {
                           </Col>
                         </Row>
                         {/* AREA COMMENTI */}
-                        <Row>
+                        <Row className=" max-vh-50 overflow-y-scroll">
                           {/* aggiungi: */}
-                          <Col xs={12} className="d-flex">
+                          <Col xs={12} className="d-flex bg-white sticky-top ">
                             <Col className=" col-auto pe-0">
                               {myProfile && (
                                 <div>
@@ -430,7 +430,7 @@ function MyHome() {
                               )}
                             </Col>
 
-                            <Col className="mb-4">
+                            <Col className="mb-3">
                               <div className="px-1">
                                 <Form>
                                   <Form.Group>
@@ -467,8 +467,9 @@ function MyHome() {
                                   <p className="fw-semibold m-0">Nome</p>
                                   <p className="fs-7 text-gray-600 m-0">Titolo</p>
                                   <p className="small m-0 mt-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quisquam voluptate
-                                    fuga totam delectus consequuntur voluptates eligendi hic, sed quia!
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut sunt qui
+                                    perferendis incidunt in laboriosam repellendus nostrum inventore earum ducimus animi
+                                    labore, eaque sequi officiis. Atque quidem quae odio.
                                   </p>
                                 </div>
                                 <div>
@@ -477,6 +478,7 @@ function MyHome() {
                               </div>
                             </Col>
                           </Col>
+                          {/* fine commento 1 */}
                           {/* commento 2 */}
                           <Col xs={12} className="d-flex mb-3">
                             <Col className=" col-auto pe-1">
@@ -498,8 +500,10 @@ function MyHome() {
                                   <p className="fw-semibold m-0">Nome</p>
                                   <p className="fs-7 text-gray-600 m-0">Titolo</p>
                                   <p className="small m-0 mt-1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quisquam voluptate
-                                    fuga totam delectus consequuntur voluptates eligendi hic, sed quia!
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor aut beatae culpa
+                                    excepturi a debitis sequi expedita modi! Unde, laboriosam veritatis aut odit aliquam
+                                    vel voluptas! Harum aut praesentium iure temporibus debitis nulla dolores rerum,
+                                    quas ipsum? Officia, distinctio accusamus.
                                   </p>
                                 </div>
                                 <div>
@@ -508,6 +512,43 @@ function MyHome() {
                               </div>
                             </Col>
                           </Col>
+                          {/* fine commento 2 */}
+                          {/* commento 3 */}
+                          <Col xs={12} className="d-flex mb-3">
+                            <Col className=" col-auto pe-1">
+                              {myProfile && (
+                                <div>
+                                  <Image
+                                    src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                                    roundedCircle
+                                    className="object-fit-cover border border-2 border-white"
+                                    style={{ height: "48px", width: "48px" }}
+                                  />
+                                </div>
+                              )}
+                            </Col>
+
+                            <Col>
+                              <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
+                                <div className="fs-6">
+                                  <p className="fw-semibold m-0">Nome</p>
+                                  <p className="fs-7 text-gray-600 m-0">Titolo</p>
+                                  <p className="small m-0 mt-1">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, amet aliquam
+                                    veritatis eum sed expedita? Non nesciunt asperiores, repellendus architecto nulla
+                                    tempore excepturi illum. Repudiandae perspiciatis ea, excepturi quasi odit
+                                    accusantium mollitia consequuntur explicabo, eius, eaque voluptatibus iusto
+                                    similique. Enim optio earum impedit asperiores rerum sit harum ullam doloremque
+                                    dolorem!
+                                  </p>
+                                </div>
+                                <div>
+                                  <i className="bi bi-three-dots"></i>
+                                </div>
+                              </div>
+                            </Col>
+                          </Col>
+                          {/* fine commento 3 */}
                         </Row>
                         {/* FINE AREA COMMENTI */}
                       </Card.Body>

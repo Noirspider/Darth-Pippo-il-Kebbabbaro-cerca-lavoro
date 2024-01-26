@@ -80,6 +80,7 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
 .form-control:focus {
   border-color: #ced4da !important;
   box-shadow: none !important;
@@ -89,4 +90,8 @@ body {
     rgba(225, 235, 242, 1) 70%,
     rgba(236, 239, 242, 1) 100%
   ) !important;
+}
+
+.max-vh-50 {
+  max-height: 50vh;
 }
