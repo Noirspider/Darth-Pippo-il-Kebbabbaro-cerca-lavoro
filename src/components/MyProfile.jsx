@@ -282,6 +282,7 @@ function MyProfile() {
           </Row>
           {/* FINE ESPERIENZE */}
         </Col>
+        {/* COL DX */}
         <Col xs={0} md={3}>
           <Row className=" mt-3">
             <Col xs={12}>
@@ -319,6 +320,7 @@ function MyProfile() {
             </Col>
           </Row>
         </Col>
+        {/* FINE COL DX */}
       </Row>
     </Container>
   );
