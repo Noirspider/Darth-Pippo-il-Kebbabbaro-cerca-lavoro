@@ -368,8 +368,8 @@ function MyProfile() {
                               </Button>
                             </div>
                           </div>
+                          <hr className="my-0" />
                         </Col>
-                        <hr className="my-0" />
                       </Col>
                     ))}
                 </Card.Body>
