@@ -284,42 +284,54 @@ function MyProfile() {
         </Col>
         {/* COL DX */}
         <Col xs={0} md={3}>
-          <Row className=" mt-3">
-            <Col xs={12}>
-              <div className=" d-flex justify-content-between">
-                <div>
-                  {" "}
-                  <h3 className="h5">Lingua del profilo</h3>
-                  <p className=" text-gray fs-7">Italiano</p>
-                </div>
+          <Row className="mt-3">
+            <Col xs={12} className="mb-2">
+              <Card className="rounded rounded-3">
+                {" "}
+                <Card.Body>
+                  <div className=" d-flex justify-content-between">
+                    <div>
+                      {" "}
+                      <h3 className="h6">Lingua del profilo</h3>
+                      <p className=" text-gray-600 fs-7 m-0">Italiano</p>
+                    </div>
 
-                <div>
-                  <i className="bi bi-pencil fs-5"></i>
-                </div>
-              </div>
-            </Col>
-            <hr />
-            <Col xs={12}>
-              <div className=" d-flex justify-content-between">
-                <div>
-                  {" "}
-                  <h3 className="h5"> Public profile & URL</h3>
-                  <p className=" text-gray fs-7"> HTTPS://PIPPOOOOOOOO </p>
-                </div>
-                <div>
-                  <i className="bi bi-pencil fs-5"></i>
-                </div>
-              </div>
+                    <div>
+                      <i className="bi bi-pencil fs-5"></i>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className=" d-flex justify-content-between">
+                    <div>
+                      {" "}
+                      <h3 className="h6"> Public profile & URL</h3>
+                      <p className=" text-gray-600 fs-7 m-0">www.linkedin.com/in/</p>
+                    </div>
+                    <div>
+                      <i className="bi bi-pencil fs-5"></i>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
+          {/* <div className=" position-sticky" style={{ top: "75px" }}> */}
           <Row>
-            <Col xs={12}>
-              <div>
-                <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className=" w-100" />
-              </div>
+            <Col xs={12} className="mb-2">
+              <Card className="rounded rounded-3">
+                {" "}
+                <Card.Body>
+                  <div>
+                    <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className="rounded w-100" />
+                  </div>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
+          {/* </div> */}
         </Col>
+        {/* --- */}
+
         {/* FINE COL DX */}
       </Row>
     </Container>
