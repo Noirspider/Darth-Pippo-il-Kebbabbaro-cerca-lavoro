@@ -345,33 +345,45 @@ function MyProfile() {
                   <h6 className="mt-2 mb-4">Persone che potresti conoscere</h6>
                   {randomProfiles &&
                     randomProfiles.map((profile) => (
-                      <Col xs={12} className="d-flex mb-1 mt-2" key={profile._id}>
-                        <Col className=" col-auto ">
-                          <div>
-                            <Image
-                              src={profile.image}
-                              roundedCircle
-                              className="object-fit-cover border border-2 border-white"
-                              style={{ height: "48px", width: "48px" }}
-                            />
-                          </div>
-                        </Col>
-                        <Col>
-                          <div className="d-flex justify-content-between py-1 px-2">
-                            <div className="fs-6">
-                              <p className="fw-semibold m-0">
-                                {profile.name} {profile.surname}
-                              </p>
-                              <p className="small m-0">{profile.title}</p>
-                              <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
-                                <i className="bi bi-person-plus-fill"></i> Collegati
-                              </Button>
+                      <div>
+                        <Col xs={12} className="d-flex mb-1 mt-2" key={profile._id}>
+                          <Col className=" col-auto ">
+                            <div>
+                              <Image
+                                src={profile.image}
+                                roundedCircle
+                                className="object-fit-cover border border-2 border-white"
+                                style={{ height: "48px", width: "48px" }}
+                              />
                             </div>
-                          </div>
-                          <hr className="my-0" />
+                          </Col>
+                          <Col>
+                            <div className="d-flex justify-content-between py-1 px-2">
+                              <div className="fs-6">
+                                <p className="fw-semibold m-0">
+                                  {profile.name} {profile.surname}
+                                </p>
+                                <p className="small m-0">{profile.title}</p>
+                                <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
+                                  <i className="bi bi-person-plus-fill"></i> Collegati
+                                </Button>
+                              </div>
+                            </div>
+                          </Col>
                         </Col>
-                      </Col>
+                        <hr className="my-0" />
+                      </div>
                     ))}
+
+                  <Row className="border-top-5 border-black  hover-gray">
+                    <Col xs={12} className="p-0 m-0 ">
+                      <Link to={"/"} className=" text-decoration-none text-black">
+                        <div className=" text-center py-2 text-gray-600">
+                          <p className="d-inline">Mostra tutto</p>
+                        </div>
+                      </Link>
+                    </Col>
+                  </Row>
                 </Card.Body>
               </Card>
             </Col>
