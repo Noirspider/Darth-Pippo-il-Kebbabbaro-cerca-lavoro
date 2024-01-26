@@ -337,3 +337,32 @@ export const fetchDeleteCommentAction = (postId) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
+
+/* Fetch utenti */
+export const fetchRandomProfilesAction = () => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+
+      let randomUsers = [];
+      while (randomUsers.length < 10) {
+        const randomIndex = Math.floor(Math.random() * data.length);
+        const selectedUser = data.splice(randomIndex, 1)[0];
+        randomUsers.push(selectedUser);
+      }
+
+      dispatch(setRandomProfile(randomUsers));
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};

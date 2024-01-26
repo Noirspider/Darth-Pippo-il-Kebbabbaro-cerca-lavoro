@@ -4,6 +4,7 @@ const initialState = {
   myProfile: null,
   myExperience: null,
   refreshExp: false,
+  randomProfile: null,
 };
 
 const profileReducer = createSlice({
@@ -19,8 +20,12 @@ const profileReducer = createSlice({
     refreshExperience: (state) => {
       state.refreshExp = !state.refreshExp;
     },
+    setRandomProfile: (state, action) => {
+      state.randomProfile = action.payload;
+    },
   },
 });
 
-export const { setMyProfile, setMyExperience, refreshExperience } = profileReducer.actions;
+export const { setMyProfile, setMyExperience, refreshExperience, setRandomProfile } = profileReducer.actions;
+
 export default profileReducer.reducer;
