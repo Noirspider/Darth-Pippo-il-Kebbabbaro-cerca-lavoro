@@ -1,3 +1,4 @@
+import { refreshComment, setCommentList } from "../reducers/commentReducer";
 import { refreshHomePost, setAllPost } from "../reducers/homePageReducer";
 import { setJobsList } from "../reducers/jobsReducer";
 import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
@@ -271,5 +272,47 @@ export const fetchPostImageHomeAction = (idPost, formData) => async (dispatch) =
     }
   } catch (error) {
     console.error("Error uploading profile picture:", error);
+  }
+};
+/* FETCH GET COMMENT */
+export const fetchCommentAction = (idComment) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setCommentList(data));
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};
+/* FETCH POST COMMENT */
+export const fetchPostCommentAction = (commentObj) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commentObj),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(refreshComment());
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
   }
 };

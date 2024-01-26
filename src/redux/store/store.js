@@ -5,10 +5,12 @@ import stateReducer from "../reducers/stateReducer";
 import profileReducer from "../reducers/profileReducer";
 import homePageReducer from "../reducers/homePageReducer";
 import jobsReducer from "../reducers/jobsReducer";
+import commentReducer from "../reducers/commentReducer";
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["comment"],
 };
 
 const rootReducer = combineReducers({
@@ -16,6 +18,7 @@ const rootReducer = combineReducers({
   home: homePageReducer,
   profile: profileReducer,
   jobs: jobsReducer,
+  comment: commentReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
