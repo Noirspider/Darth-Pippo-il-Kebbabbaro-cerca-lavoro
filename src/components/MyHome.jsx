@@ -17,6 +17,8 @@ import PostPictureModal from "./PostPictureModal";
 import { setCommentList } from "../redux/reducers/commentReducer";
 import { parseISO, formatDistanceToNow } from "date-fns";
 
+import ImageSlider from "./ImageSlider";
+
 function MyHome() {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.profile.myProfile);
@@ -34,6 +36,12 @@ function MyHome() {
 
   const [commentInput, setCommentInput] = useState("");
   const [fetchTimer, setFetchTimer] = useState(null);
+
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+
+  const images = importAll(require.context("../assets/meme", false, /\.(png|jpe?g|svg)$/));
 
   useEffect(() => {
     dispatch(fetchProfileAction());
@@ -551,7 +559,7 @@ function MyHome() {
                   {" "}
                   <Card.Body>
                     <div>
-                      <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className="rounded w-100" />
+                      <ImageSlider images={images} />
                     </div>
                   </Card.Body>
                 </Card>
