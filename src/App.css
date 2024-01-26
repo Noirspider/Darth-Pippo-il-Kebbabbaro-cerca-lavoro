@@ -80,3 +80,13 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+.form-control:focus {
+  border-color: #ced4da !important;
+  box-shadow: none !important;
+  background: radial-gradient(
+    circle,
+    rgba(215, 235, 242, 1) 15%,
+    rgba(225, 235, 242, 1) 70%,
+    rgba(236, 239, 242, 1) 100%
+  ) !important;
+}
