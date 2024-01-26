@@ -2,18 +2,25 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchCommentAction, fetchHomeAction, fetchProfileAction } from "../redux/actions/actions";
+import {
+  fetchCommentAction,
+  fetchHomeAction,
+  fetchPostCommentAction,
+  fetchProfileAction,
+} from "../redux/actions/actions";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HomeDeleteModal from "./HomeDeleteModal";
 import HomePutModal from "./HomePutModal";
 import HomePostModal from "./HomePostModal";
 import PostPictureModal from "./PostPictureModal";
+import { setCommentList } from "../redux/reducers/commentReducer";
 
 function MyHome() {
   const dispatch = useDispatch();
   const myProfile = useSelector((state) => state.profile.myProfile);
   const allPost = useSelector((state) => state.home.allPost);
   const refreshPost = useSelector((state) => state.home.refreshPost);
+  const refreshComment = useSelector((state) => state.comment.refreshCom);
   const filteredComment = useSelector((state) => state.comment.commentList);
 
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
@@ -24,6 +31,7 @@ function MyHome() {
   const [selectedPostData, setSelectedPostData] = useState(null);
   const [selectedPostComment, setSelectedPostComment] = useState(null);
 
+  const [commentInput, setCommentInput] = useState("");
   const [fetchTimer, setFetchTimer] = useState(null);
 
   useEffect(() => {
@@ -41,8 +49,20 @@ function MyHome() {
   }, [refreshPost]);
 
   const handleComment = (post) => {
+    dispatch(setCommentList(null));
     setSelectedPostComment(post);
     dispatch(fetchCommentAction(post._id));
+  };
+  const handleSubmitComment = (e, post) => {
+    e.preventDefault();
+
+    const commentToPost = {
+      comment: commentInput,
+      rate: "5",
+      elementId: post._id,
+    };
+    dispatch(fetchPostCommentAction(commentToPost));
+    setCommentInput("");
   };
 
   const handleHomePictureModal = (post) => {
@@ -427,13 +447,15 @@ function MyHome() {
 
                               <Col className="mb-3">
                                 <div className="px-1">
-                                  <Form>
+                                  <Form onSubmit={(e) => handleSubmitComment(e, post)}>
                                     <Form.Group>
                                       {/* -- <Form.Label></Form.Label> -- */}
                                       <Form.Control
                                         type="text"
                                         className="rounded rounded-5 fs-7 fw-semibold py-2 mt-1"
                                         placeholder="Aggiungi un commento..."
+                                        value={commentInput}
+                                        onChange={(e) => setCommentInput(e.target.value)}
                                       />
                                     </Form.Group>
                                   </Form>
