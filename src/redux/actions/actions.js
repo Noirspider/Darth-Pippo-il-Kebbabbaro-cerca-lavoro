@@ -1,7 +1,7 @@
 import { refreshComment, setCommentList } from "../reducers/commentReducer";
 import { refreshHomePost, setAllPost } from "../reducers/homePageReducer";
 import { setJobsList } from "../reducers/jobsReducer";
-import { refreshExperience, setMyExperience, setMyProfile } from "../reducers/profileReducer";
+import { refreshExperience, setMyExperience, setMyProfile, setRandomProfile } from "../reducers/profileReducer";
 const token = process.env.REACT_APP_TOKEN;
 /* FETCH GET PROFILE */
 export const fetchProfileAction = () => async (dispatch) => {
