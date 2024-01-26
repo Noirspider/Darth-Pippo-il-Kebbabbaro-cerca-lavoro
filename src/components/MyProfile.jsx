@@ -345,8 +345,8 @@ function MyProfile() {
                   <h6 className="mt-2 mb-4">Persone che potresti conoscere</h6>
                   {randomProfiles &&
                     randomProfiles.map((profile) => (
-                      <div>
-                        <Col xs={12} className="d-flex mb-1 mt-2" key={profile._id}>
+                      <div key={profile._id}>
+                        <Col xs={12} className="d-flex mb-1 mt-2">
                           <Col className=" col-auto ">
                             <div>
                               <Image
