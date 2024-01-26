@@ -308,7 +308,7 @@ export const fetchPostCommentAction = (commentObj) => async (dispatch) => {
 
     if (response.ok) {
       const data = await response.json();
-      dispatch(refreshComment());
+      dispatch(fetchCommentAction(data.elementId));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }

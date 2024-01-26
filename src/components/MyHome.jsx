@@ -55,7 +55,6 @@ function MyHome() {
   };
   const handleSubmitComment = (e, post) => {
     e.preventDefault();
-
     const commentToPost = {
       comment: commentInput,
       rate: "5",
