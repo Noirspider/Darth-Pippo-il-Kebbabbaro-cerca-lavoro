@@ -241,9 +241,15 @@ function MyProfile() {
                                   <p className="fw-semibold pt-2 mb-0">{exp.role}</p>
                                   <p className="small mb-0">{exp.company}</p>
                                   <p className="text-gray small mb-0">
-                                    {new Date(exp.startDate).getFullYear() +
+                                    {new Date(exp.startDate).toLocaleDateString("it-IT", {
+                                      month: "short",
+                                      year: "numeric",
+                                    }) +
                                       " - " +
-                                      new Date(exp.endDate).getFullYear()}
+                                      new Date(exp.endDate).toLocaleDateString("it-IT", {
+                                        month: "short",
+                                        year: "numeric",
+                                      })}
                                   </p>
                                   <p className="text-gray small  mb-0">{exp.area}</p>
                                   <p className="small mt-2">{exp.description}</p>
