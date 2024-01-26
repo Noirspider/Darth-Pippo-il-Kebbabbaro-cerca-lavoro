@@ -286,7 +286,7 @@ export const fetchCommentAction = (idComment) => async (dispatch) => {
 
     if (response.ok) {
       const data = await response.json();
-      dispatch(setCommentList(data));
+      dispatch(setCommentList(data.filter((comment) => comment.elementId == idComment).reverse()));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }

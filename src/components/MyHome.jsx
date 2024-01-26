@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, Row, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchHomeAction, fetchProfileAction } from "../redux/actions/actions";
+import { fetchCommentAction, fetchHomeAction, fetchProfileAction } from "../redux/actions/actions";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import HomeDeleteModal from "./HomeDeleteModal";
 import HomePutModal from "./HomePutModal";
@@ -14,8 +14,7 @@ function MyHome() {
   const myProfile = useSelector((state) => state.profile.myProfile);
   const allPost = useSelector((state) => state.home.allPost);
   const refreshPost = useSelector((state) => state.home.refreshPost);
-
-  const [searchBarValue, setSearchBarValue] = useState("");
+  const filteredComment = useSelector((state) => state.comment.commentList);
 
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomePutModal, setShowHomePutModal] = useState(false);
@@ -23,6 +22,7 @@ function MyHome() {
   const [showHomePictureModal, setShowHomePictureModal] = useState(false);
 
   const [selectedPostData, setSelectedPostData] = useState(null);
+  const [selectedPostComment, setSelectedPostComment] = useState(null);
 
   const [fetchTimer, setFetchTimer] = useState(null);
 
@@ -40,18 +40,10 @@ function MyHome() {
     dispatch(fetchHomeAction());
   }, [refreshPost]);
 
-  /*   const handleAddPost = (e) => {
-    e.preventDefault();
-
-    if (searchBarValue != "") {
-      const objectToPost = {
-        text: searchBarValue,
-      };
-
-      dispatch(fetchPostHomeAction(objectToPost));
-      setSearchBarValue("");
-    }
-  }; */
+  const handleComment = (post) => {
+    setSelectedPostComment(post);
+    dispatch(fetchCommentAction(post._id));
+  };
 
   const handleHomePictureModal = (post) => {
     setSelectedPostData(post);
@@ -394,7 +386,9 @@ function MyHome() {
                                 <Col xs={3}>
                                   <div className="d-flex justify-content-center align-items-center hover-gray">
                                     <i className="bi bi-chat-text me-1"></i>
-                                    <span className="fs-7 text-gray fw-semibold">Commenta</span>
+                                    <span className="fs-7 text-gray fw-semibold" onClick={() => handleComment(post)}>
+                                      Commenta
+                                    </span>
                                   </div>
                                 </Col>
                                 <Col xs={3}>
@@ -414,72 +408,72 @@ function MyHome() {
                           </Col>
                         </Row>
                         {/* AREA COMMENTI */}
-                        <Row className=" max-vh-50 overflow-y-scroll comments-scrollbar">
-                          {/* aggiungi: */}
-                          <Col xs={12} className="d-flex bg-white sticky-top ">
-                            <Col className=" col-auto pe-0">
-                              {myProfile && (
-                                <div>
-                                  <Image
-                                    src={myProfile.image}
-                                    roundedCircle
-                                    className="object-fit-cover border border-2 border-white"
-                                    style={{ height: "48px", width: "48px" }}
-                                  />
-                                </div>
-                              )}
-                            </Col>
-
-                            <Col className="mb-3">
-                              <div className="px-1">
-                                <Form>
-                                  <Form.Group>
-                                    {/* -- <Form.Label></Form.Label> -- */}
-                                    <Form.Control
-                                      type="text"
-                                      className="rounded rounded-5 fs-7 fw-semibold py-2 mt-1"
-                                      placeholder="Aggiungi un commento..."
+                        {selectedPostComment && selectedPostComment._id == post._id && (
+                          <Row className=" max-vh-50 overflow-y-scroll comments-scrollbar">
+                            {/* aggiungi: */}
+                            <Col xs={12} className="d-flex bg-white sticky-top ">
+                              <Col className=" col-auto pe-0">
+                                {myProfile && (
+                                  <div>
+                                    <Image
+                                      src={myProfile.image}
+                                      roundedCircle
+                                      className="object-fit-cover border border-2 border-white"
+                                      style={{ height: "48px", width: "48px" }}
                                     />
-                                  </Form.Group>
-                                </Form>
-                              </div>
-                            </Col>
-                          </Col>
-                          {/* commenti: */}
-                          {/* commento 1 */}
-                          <Col xs={12} className="d-flex mb-3">
-                            <Col className=" col-auto pe-1">
-                              {myProfile && (
-                                <div>
-                                  <Image
-                                    src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
-                                    roundedCircle
-                                    className="object-fit-cover border border-2 border-white"
-                                    style={{ height: "48px", width: "48px" }}
-                                  />
-                                </div>
-                              )}
-                            </Col>
+                                  </div>
+                                )}
+                              </Col>
 
-                            <Col>
-                              <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
-                                <div className="fs-6">
-                                  <p className="fw-semibold m-0">Nome</p>
-                                  <p className="fs-7 text-gray-600 m-0">Titolo</p>
-                                  <p className="small m-0 mt-1">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut sunt qui
-                                    perferendis incidunt in laboriosam repellendus nostrum inventore earum ducimus animi
-                                    labore, eaque sequi officiis. Atque quidem quae odio.
-                                  </p>
+                              <Col className="mb-3">
+                                <div className="px-1">
+                                  <Form>
+                                    <Form.Group>
+                                      {/* -- <Form.Label></Form.Label> -- */}
+                                      <Form.Control
+                                        type="text"
+                                        className="rounded rounded-5 fs-7 fw-semibold py-2 mt-1"
+                                        placeholder="Aggiungi un commento..."
+                                      />
+                                    </Form.Group>
+                                  </Form>
                                 </div>
-                                <div>
-                                  <i className="bi bi-three-dots"></i>
-                                </div>
-                              </div>
+                              </Col>
                             </Col>
-                          </Col>
-                          {/* fine commento 1 */}
-                        </Row>
+                            {/* commenti: */}
+                            {/* commento 1 */}
+                            {filteredComment &&
+                              filteredComment.map((comment) => (
+                                <Col key={comment._id} xs={12} className="d-flex mb-3">
+                                  <Col className=" col-auto pe-1">
+                                    {myProfile && (
+                                      <div>
+                                        <Image
+                                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                                          roundedCircle
+                                          className="object-fit-cover border border-2 border-white"
+                                          style={{ height: "48px", width: "48px" }}
+                                        />
+                                      </div>
+                                    )}
+                                  </Col>
+
+                                  <Col>
+                                    <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
+                                      <div className="fs-6">
+                                        <p className="fw-semibold m-0">{comment.author}</p>
+                                        <p className="small m-0 mt-1">{comment.comment}</p>
+                                      </div>
+                                      <div>
+                                        <i className="bi bi-three-dots"></i>
+                                      </div>
+                                    </div>
+                                  </Col>
+                                </Col>
+                              ))}
+                            {/* fine commento 1 */}
+                          </Row>
+                        )}
                         {/* FINE AREA COMMENTI */}
                       </Card.Body>
                     </Card>
