@@ -316,3 +316,24 @@ export const fetchPostCommentAction = (commentObj) => async (dispatch) => {
     console.error("Errore nel fetch:", error.message);
   }
 };
+/* FETCH DELETE COMMENT */
+export const fetchDeleteCommentAction = (postId) => async (dispatch) => {
+  try {
+    const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + postId, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      /* const data = await response.json(); */
+      dispatch(fetchCommentAction());
+    } else {
+      throw new Error("Errore nel recupero dei risultati");
+    }
+  } catch (error) {
+    console.error("Errore nel fetch:", error.message);
+  }
+};

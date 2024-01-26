@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   fetchCommentAction,
+  fetchDeleteCommentAction,
   fetchHomeAction,
   fetchPostCommentAction,
   fetchProfileAction,
@@ -49,6 +50,10 @@ function MyHome() {
   useEffect(() => {
     dispatch(fetchHomeAction());
   }, [refreshPost]);
+
+  const handleDeleteComment = (id) => {
+    dispatch(fetchDeleteCommentAction(id));
+  };
 
   const handleComment = (post) => {
     dispatch(setCommentList(null));
@@ -501,7 +506,10 @@ function MyHome() {
                                           </p>
                                         </div>
                                         <div>
-                                          <i className="bi bi-three-dots"></i>
+                                          <i
+                                            className=" icon-delete-post bi bi-x-lg"
+                                            onClick={() => handleDeleteComment(comment._id)}
+                                          ></i>
                                         </div>
                                       </div>
                                     </Col>
