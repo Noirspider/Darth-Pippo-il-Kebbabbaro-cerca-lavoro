@@ -414,7 +414,7 @@ function MyHome() {
                           </Col>
                         </Row>
                         {/* AREA COMMENTI */}
-                        <Row className=" max-vh-50 overflow-y-scroll">
+                        <Row className=" max-vh-50 overflow-y-scroll comments-scrollbar">
                           {/* aggiungi: */}
                           <Col xs={12} className="d-flex bg-white sticky-top ">
                             <Col className=" col-auto pe-0">

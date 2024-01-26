@@ -95,3 +95,10 @@ body {
 .max-vh-50 {
   max-height: 50vh;
 }
+
+/* SCROLLBAR Commenti */
+
+.comments-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #dfe7f5 #f8faff;
+}
