@@ -118,42 +118,43 @@ function MyHome() {
                     </Row>
                     <Row className="fs-7 mt-5">
                       {myProfile && (
-                        <Col xs={12} className="d-flex justify-content-center">
+                        <Col xs={12} className="d-flex justify-content-center mt-3 mb-2">
                           <div className=" text-center">
                             <h2 className=" fs-6">{myProfile.username}</h2>
-                            <h4 className="fs-7 text-gray fw-normal">{myProfile.title}</h4>
+                            <h4 className="fs-7 text-gray-600 fw-normal">{myProfile.title}</h4>
                           </div>
                         </Col>
                       )}
-                      <hr className="text-gray" />
+                      <hr className=" text-gray-600" />
                       <Col xs={12}>
                         <div>
                           <div className="d-flex justify-content-between">
-                            <p className="text-gray fw-semibold m-0">Visitatori del profilo</p>
+                            <p className=" text-gray-600 fw-semibold m-0">Visitatori del profilo</p>
                             <p className="text-primary fw-semibold m-0">50</p>
                           </div>
-                          <div className="d-flex justify-content-between">
-                            <p className="text-gray fw-semibold m-0">Collegamenti</p>
+                          <div className="d-flex justify-content-between mt-2">
+                            <p className=" text-gray-600 fw-semibold m-0">Collegamenti</p>
                             <p className="text-primary fw-semibold m-0">100</p>
                           </div>
                           <p className="fw-semibold">Espandi la tua rete</p>
                         </div>
                       </Col>
-                      <hr className="text-gray" />
+                      <hr className=" text-gray-600" />
                       <Col xs={12}>
                         <div>
-                          <p className="text-gray m-0">Accedi a strumenti e informazioni in esclusiva</p>
+                          <p className="text-gray-600 m-0">Accedi a strumenti e informazioni in esclusiva</p>
 
                           <p className="fw-semibold">
-                            <i className="bi bi-gem"></i> Prova Premium per 0 EUR
+                            <i className="bi bi-gem text-orange-300 bg-yellow-100 rounded px-1"></i> Prova Premium per 0
+                            EUR
                           </p>
                         </div>
                       </Col>
-                      <hr className="text-gray" />
+                      <hr className=" text-gray-600" />
                       <Col xs={12}>
                         <div>
-                          <p>
-                            <i className="bi bi-bookmark-fill"></i> I miei elementi
+                          <p className="m-0">
+                            <i className="bi bi-bookmark-fill text-gray-600"></i> I miei elementi
                           </p>
                         </div>
                       </Col>
@@ -171,39 +172,22 @@ function MyHome() {
                   <Card.Body>
                     <Row className="fs-7">
                       <Col xs={12}>
-                        <div>
+                        <div className="text-gray-600">
                           <p className="mb-2">Recenti</p>
                           <p className="m-1">
-                            <i className="bi bi-people-fill"></i> React Developers - ReactJS & ...
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> React Developers - ReactJS & ...
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-people-fill"></i> Artificial Intelligence, Machine...
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> Artificial Intelligence, Machine...
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-people-fill"></i> JavaScript Developer
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> JavaScript Developer
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-people-fill"></i> JavaScript
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> JavaScript
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-hash"></i> management
-                          </p>
-                        </div>
-                      </Col>
-                      {/* <hr className="text-gray" /> */}
-                    </Row>
-                    <Row className="fs-7 mt-3">
-                      <Col xs={12}>
-                        <div>
-                          <p className="mb-2">Gruppi</p>
-                          <p className="m-1">
-                            <i className="bi bi-people-fill"></i> React Developers - ReactJS & ...
-                          </p>
-                          <p className="m-1">
-                            <i className="bi bi-people-fill"></i> Artificial Intelligence, Machine...
-                          </p>
-                          <p className="m-1">
-                            <i className="bi bi-people-fill"></i> JavaScript Developer
+                            <i className="bi bi-hash text-gray-900 me-1"></i> management
                           </p>
                         </div>
                       </Col>
@@ -211,16 +195,33 @@ function MyHome() {
                     </Row>
                     <Row className="fs-7 mt-3">
                       <Col xs={12}>
-                        <div>
-                          <p className="mb-2">Hashtag seguiti</p>
+                        <div className="text-gray-600">
+                          <p className="text-blue-400 fw-semibold mb-2">Gruppi</p>
                           <p className="m-1">
-                            <i className="bi bi-hash"></i> management
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> React Developers - ReactJS & ...
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-hash"></i> economy
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> Artificial Intelligence, Machine...
                           </p>
                           <p className="m-1">
-                            <i className="bi bi-hash"></i> tech
+                            <i className="bi bi-people-fill text-gray-900 me-1"></i> JavaScript Developer
+                          </p>
+                        </div>
+                      </Col>
+                      {/* <hr className="text-gray" /> */}
+                    </Row>
+                    <Row className="fs-7 mt-3">
+                      <Col xs={12}>
+                        <div className="text-gray-600">
+                          <p className="text-blue-400 fw-semibold mb-2">Hashtag seguiti</p>
+                          <p className="m-1">
+                            <i className="bi bi-hash text-gray-900 me-1"></i> management
+                          </p>
+                          <p className="m-1">
+                            <i className="bi bi-hash text-gray-900 me-1"></i> economy
+                          </p>
+                          <p className="m-1">
+                            <i className="bi bi-hash text-gray-900 me-1"></i> tech
                           </p>
                         </div>
                       </Col>
@@ -522,25 +523,25 @@ function MyHome() {
         <Col xs={0} md={3}>
           <Row className="mt-3">
             <Col xs={12} className="mb-2">
-              <Card>
+              <Card className="rounded rounded-3">
                 {" "}
                 <Card.Body>
                   <div className=" d-flex justify-content-between">
                     <div>
                       {" "}
-                      <h3 className="h5">LinkedIn Notizie</h3>
-                      <ul>
-                        <li className="fw-semibold">I 15 lavori in più rapida crescita</li>
-                        <span className="text-gray small">Notizie principali</span>
-                        <li className="fw-semibold">Cercare lavoro nella tecnologia</li>
-                        <span className="text-gray small">1 giorno fa</span>
-                        <li className="fw-semibold">Le città dei lavori in crescita</li>
-                        <span className="text-gray small">23 ore fa</span>
+                      <h3 className="h6">LinkedIn Notizie</h3>
+                      <ul className="mb-2">
+                        <li className="fw-semibold small">I 15 lavori in più rapida crescita</li>
+                        <span className="text-gray-600 fs-7">Notizie principali</span>
+                        <li className="fw-semibold small">Cercare lavoro nella tecnologia</li>
+                        <span className="text-gray-600 fs-7">1 giorno fa</span>
+                        <li className="fw-semibold small">Le città dei lavori in crescita</li>
+                        <span className="text-gray-600 fs-7">23 ore fa</span>
                       </ul>
                     </div>
 
                     <div>
-                      <i className="bi bi-info-square-fill"></i>
+                      <i className="bi bi-info-square-fill fs-7"></i>
                     </div>
                   </div>
                 </Card.Body>
@@ -550,64 +551,64 @@ function MyHome() {
           <div className=" position-sticky" style={{ top: "75px" }}>
             <Row>
               <Col xs={12} className="mb-2">
-                <Card>
+                <Card className="rounded rounded-3">
                   {" "}
                   <Card.Body>
                     <div>
-                      <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className=" w-100" />
+                      <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className="rounded w-100" />
                     </div>
                   </Card.Body>
                 </Card>
               </Col>
 
               <Col xs={12}>
-                <Card>
+                <Card className="rounded rounded-3 bg-transparent border-0">
                   {" "}
-                  <Card.Body>
+                  <Card.Body className="py-2">
                     <div>
-                      <ul className="d-flex list-unstyled justify-content-center align-content-center flex-wrap">
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-darkgray small text-decoration-none my-4 mx-8">
+                      <ul className="d-flex list-unstyled justify-content-center align-content-center flex-wrap small">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Informazioni</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Accessibilità</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Centro assistenza</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Privacy e condizioni</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Opzioni per gli annunci pubblicitari</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Pubblicità</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Servizi alle aziende</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Scarica l'app LinkedIn</span>
                           </a>
                         </li>
-                        <li style={{ margin: "4px 8px" }}>
-                          <a href="#" className="text-gray small text-decoration-none">
+                        <li>
+                          <a href="#" className=" text-gray-600 small text-decoration-none link-blue-500 px-4">
                             <span>Altro</span>
                           </a>
                         </li>
@@ -635,14 +636,12 @@ function MyHome() {
                             ></image>
                           </svg>
                         </svg>
-                        LinkedIn Corporation © 2024
+                        <span className="fs-7">LinkedIn Corporation © 2024</span>
                       </div>
                     </div>
                   </Card.Body>
                 </Card>
               </Col>
-
-              <hr />
             </Row>
           </div>
         </Col>
