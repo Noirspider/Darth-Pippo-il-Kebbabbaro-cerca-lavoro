@@ -9,6 +9,7 @@ import ExperienceDeleteModal from "./ExperienceDeleteModal";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ExperiencePostModal from "./ExperiencePostModal";
 import ProfilePictureModal from "./ProfilePictureModal";
+import ImageSlider from "./ImageSlider";
 
 function MyProfile() {
   const dispatch = useDispatch();
@@ -17,6 +18,12 @@ function MyProfile() {
   const myExperience = useSelector((state) => state.profile.myExperience);
   const refreshExperience = useSelector((state) => state.profile.refreshExp);
   const randomProfiles = useSelector((state) => state.profile.randomProfile);
+
+  function importAll(r) {
+    return r.keys().map(r);
+  }
+
+  const images = importAll(require.context("../assets/meme", false, /\.(png|jpe?g|svg)$/));
 
   useEffect(() => {
     dispatch(fetchProfileAction());
@@ -330,7 +337,7 @@ function MyProfile() {
                 {" "}
                 <Card.Body>
                   <div>
-                    <img src="https://i.imgflip.com/8d710i.jpg" alt="meme" className="rounded w-100" />
+                    <ImageSlider images={images} />
                   </div>
                 </Card.Body>
               </Card>
