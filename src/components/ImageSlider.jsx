@@ -6,7 +6,7 @@ const ImageSlider = ({ images }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Cambia immagine ogni 10 secondi
+    }, 3000); // Cambia immagine ogni 10 secondi
 
     return () => clearInterval(timer); // Pulizia alla dismissione del componente
   }, [images.length]);
