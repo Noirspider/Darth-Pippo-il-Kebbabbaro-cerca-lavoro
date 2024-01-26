@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"; // Importa useRef
 import { Card, Col, Container, Image, NavLink, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
+import { fetchExpAction, fetchProfileAction, fetchRandomProfilesAction } from "../redux/actions/actions";
 import MyModal from "./ProfileModal";
 import ExperienceModal from "./ExperiencePutModal";
 import ExperienceDeleteModal from "./ExperienceDeleteModal";
@@ -16,9 +16,11 @@ function MyProfile() {
   const myProfile = useSelector((state) => state.profile.myProfile);
   const myExperience = useSelector((state) => state.profile.myExperience);
   const refreshExperience = useSelector((state) => state.profile.refreshExp);
+  const randomProfiles = useSelector((state) => state.profile.randomProfile);
 
   useEffect(() => {
     dispatch(fetchProfileAction());
+    dispatch(fetchRandomProfilesAction());
   }, []);
 
   useEffect(() => {
@@ -339,72 +341,37 @@ function MyProfile() {
           <Row>
             <Col xs={12}>
               <Card className="rounded rounded-3">
-                {" "}
                 <Card.Body className="pb-0">
                   <h6 className="mt-2 mb-4">Persone che potresti conoscere</h6>
-                  {/* persona 1 */}
-                  <Col xs={12} className="d-flex mb-1 mt-2">
-                    <Col className=" col-auto ">
-                      <div>
-                        <Image
-                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
-                          roundedCircle
-                          className="object-fit-cover border border-2 border-white"
-                          style={{ height: "48px", width: "48px" }}
-                        />
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="d-flex justify-content-between py-1 px-2">
-                        <div className="fs-6">
-                          <p className="fw-semibold m-0">Nome e Cognome</p>
-                          <p className="small m-0">Ruolo</p>
-                          <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
-                            <i className="bi bi-person-plus-fill"></i> Collegati
-                          </Button>
-                        </div>
-                      </div>
-                    </Col>
-                  </Col>
-                  <hr className="my-0" />
-
-                  {/* fine persona 1 */}
-                  {/* persona 2 */}
-                  <Col xs={12} className="d-flex mb-1 mt-2">
-                    <Col className=" col-auto ">
-                      <div>
-                        <Image
-                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
-                          roundedCircle
-                          className="object-fit-cover border border-2 border-white"
-                          style={{ height: "48px", width: "48px" }}
-                        />
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="d-flex justify-content-between py-1 px-2">
-                        <div className="fs-6">
-                          <p className="fw-semibold m-0">Nome e Cognome</p>
-                          <p className="small m-0">Ruolo</p>
-                          <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
-                            <i className="bi bi-person-plus-fill"></i> Collegati
-                          </Button>
-                        </div>
-                      </div>
-                    </Col>
-                  </Col>
-                  <hr className="my-0" />
-
-                  {/* fine persona 2 */}
-                  <Row className="border-top-5 border-black  hover-gray">
-                    <Col xs={12} className="p-0 m-0 ">
-                      <Link to={"/"} className=" text-decoration-none text-black">
-                        <div className=" text-center py-2 text-gray-600">
-                          <p className="d-inline">Mostra tutto</p>
-                        </div>
-                      </Link>
-                    </Col>
-                  </Row>
+                  {randomProfiles &&
+                    randomProfiles.map((profile) => (
+                      <Col xs={12} className="d-flex mb-1 mt-2" key={profile._id}>
+                        <Col className=" col-auto ">
+                          <div>
+                            <Image
+                              src={profile.image}
+                              roundedCircle
+                              className="object-fit-cover border border-2 border-white"
+                              style={{ height: "48px", width: "48px" }}
+                            />
+                          </div>
+                        </Col>
+                        <Col>
+                          <div className="d-flex justify-content-between py-1 px-2">
+                            <div className="fs-6">
+                              <p className="fw-semibold m-0">
+                                {profile.name} {profile.surname}
+                              </p>
+                              <p className="small m-0">{profile.title}</p>
+                              <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
+                                <i className="bi bi-person-plus-fill"></i> Collegati
+                              </Button>
+                            </div>
+                          </div>
+                        </Col>
+                        <hr className="my-0" />
+                      </Col>
+                    ))}
                 </Card.Body>
               </Card>
             </Col>

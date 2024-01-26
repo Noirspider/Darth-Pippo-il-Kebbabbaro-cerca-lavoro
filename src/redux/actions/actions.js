@@ -352,7 +352,7 @@ export const fetchRandomProfilesAction = () => async (dispatch) => {
       const data = await response.json();
 
       let randomUsers = [];
-      while (randomUsers.length < 10) {
+      while (randomUsers.length < 5) {
         const randomIndex = Math.floor(Math.random() * data.length);
         const selectedUser = data.splice(randomIndex, 1)[0];
         randomUsers.push(selectedUser);

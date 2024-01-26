@@ -150,7 +150,7 @@ function MyNavBar() {
               <div className="mx-2">
                 <NavDropdown.Item
                   href="/profile"
-                  className="text-blue-500 fs-7 fw-semibold text-center border border-blue-500 border-2 rounded-pill py-0 my-2 px-0"
+                  className=" btn btn-outline-blue-500  fs-7 fw-semibold text-center border border-blue-500 border-2 rounded-pill py-0 my-2 px-0"
                 >
                   Visualizza profilo
                 </NavDropdown.Item>

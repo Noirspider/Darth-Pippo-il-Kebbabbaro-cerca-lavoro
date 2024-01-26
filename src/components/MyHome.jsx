@@ -483,19 +483,6 @@ function MyHome() {
                                 .reverse()
                                 .map((comment) => (
                                   <Col key={comment._id} xs={12} className="d-flex mb-3">
-                                    <Col className=" col-auto pe-1">
-                                      {myProfile && (
-                                        <div>
-                                          <Image
-                                            src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
-                                            roundedCircle
-                                            className="object-fit-cover border border-2 border-white"
-                                            style={{ height: "48px", width: "48px" }}
-                                          />
-                                        </div>
-                                      )}
-                                    </Col>
-
                                     <Col>
                                       <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
                                         <div className="fs-6">
