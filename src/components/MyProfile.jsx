@@ -22,8 +22,8 @@ function MyProfile() {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchExpAction("65af7f33bd5d12001890d40a"));
-  }, [refreshExperience]);
+    if (myProfile) dispatch(fetchExpAction(myProfile._id));
+  }, [refreshExperience, myProfile]);
 
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [showExperienceModal, setShowExperienceModal] = useState(false);
