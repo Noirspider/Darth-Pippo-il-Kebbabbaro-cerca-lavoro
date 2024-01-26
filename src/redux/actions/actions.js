@@ -147,7 +147,7 @@ export const fetchHomeAction = () => async (dispatch) => {
 
     if (response.ok) {
       const data = await response.json();
-      dispatch(setAllPost(data.reverse().slice(0, 20)));
+      dispatch(setAllPost(data.reverse().slice(0, 50)));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }
