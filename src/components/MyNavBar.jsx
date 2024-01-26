@@ -67,7 +67,7 @@ function MyNavBar() {
                 <p className="fs-7 mb-0">Home</p>
               </Nav.Link>
             </div>
-            <Nav.Link href="#action2" className=" text-center py-0">
+            <Nav.Link href="#" className=" text-center py-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ function MyNavBar() {
               </svg>{" "}
               <p className="fs-7 mb-0">Lavoro</p>
             </Nav.Link>
-            <Nav.Link href="#action4" className=" text-center py-0">
+            <Nav.Link href="#" className=" text-center py-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -112,7 +112,7 @@ function MyNavBar() {
               </svg>
               <p className="fs-7 mb-0">Messaggistica</p>
             </Nav.Link>
-            <Nav.Link href="#action5" className=" text-center py-0">
+            <Nav.Link href="#" className=" text-center py-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -140,16 +140,39 @@ function MyNavBar() {
               id="navbarScrollingDropdown"
               className="custom-dropdown"
             >
-              <NavDropdown.Item href="/profile">Visualizza profilo</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+              <div className="mx-2">
+                <NavDropdown.Item
+                  href="/profile"
+                  className="text-blue-500 fs-7 fw-semibold text-center border border-blue-500 border-2 rounded-pill py-0 my-2 px-0"
+                >
+                  Visualizza profilo
+                </NavDropdown.Item>
+              </div>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              <NavDropdown.Item href="#" className="text-gray-700 fs-7 fw-semibold">
+                <i className="bi bi-gem text-orange-300 bg-yellow-100 rounded px-1 me-1"></i>
+                Prova Premium per 0 EUR
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/profile" className="text-gray-700 fs-7">
+                Impostazioni e privacy
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/profile" className="text-gray-700 fs-7">
+                Guida
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/profile" className="text-gray-700 fs-7">
+                Lingua
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#" className="text-gray-700 fs-7">
+                Esci
+              </NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown
               title={
                 <div className="d-flex flex-column align-items-center">
-                  <i className="bi bi-grid-3x3-gap-fill text-black fs-5"></i>
+                  <i className="bi bi-grid-3x3-gap-fill text-gray-700 fs-5"></i>
                   <span className="d-flex align-items-center fs-7">
                     Per le aziende <i className="bi bi-chevron-down fs-8 ms-1"></i>
                   </span>
@@ -158,10 +181,16 @@ function MyNavBar() {
               id="navbarScrollingDropdown"
               className="custom-dropdown"
             >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              <NavDropdown.Item href="#" className="text-gray-700 fs-7">
+                Assumi su LinkedIn
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#" className="text-gray-700 fs-7">
+                Vendi su LinkedIn
+              </NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+              <NavDropdown.Item href="#" className="text-gray-700 fs-7">
+                Fai pubblicità su LinkedIn
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
