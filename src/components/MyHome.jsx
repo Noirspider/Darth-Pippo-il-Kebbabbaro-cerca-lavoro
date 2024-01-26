@@ -489,6 +489,9 @@ function MyHome() {
                                       <div className="fs-6">
                                         <p className="fw-semibold m-0">{comment.author}</p>
                                         <p className="small m-0 mt-1">{comment.comment}</p>
+                                        <p className="fs-7 m-0 mt-1">
+                                          {formatDistanceToNow(parseISO(comment.createdAt)) + " ago"}
+                                        </p>
                                       </div>
                                       <div>
                                         <i className="bi bi-three-dots"></i>
