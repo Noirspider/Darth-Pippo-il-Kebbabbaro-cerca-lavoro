@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"; // Importa useRef
-import { Card, Col, Container, Image, NavLink, Row } from "react-bootstrap";
+import { Card, Col, Container, Image, NavLink, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchExpAction, fetchProfileAction } from "../redux/actions/actions";
@@ -335,6 +335,81 @@ function MyProfile() {
             </Col>
           </Row>
           {/* </div> */}
+          {/* LISTA PERSONE */}
+          <Row>
+            <Col xs={12}>
+              <Card className="rounded rounded-3">
+                {" "}
+                <Card.Body className="pb-0">
+                  <h6 className="mt-2 mb-4">Persone che potresti conoscere</h6>
+                  {/* persona 1 */}
+                  <Col xs={12} className="d-flex mb-1 mt-2">
+                    <Col className=" col-auto ">
+                      <div>
+                        <Image
+                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                          roundedCircle
+                          className="object-fit-cover border border-2 border-white"
+                          style={{ height: "48px", width: "48px" }}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="d-flex justify-content-between py-1 px-2">
+                        <div className="fs-6">
+                          <p className="fw-semibold m-0">Nome e Cognome</p>
+                          <p className="small m-0">Ruolo</p>
+                          <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
+                            <i className="bi bi-person-plus-fill"></i> Collegati
+                          </Button>
+                        </div>
+                      </div>
+                    </Col>
+                  </Col>
+                  <hr className="my-0" />
+
+                  {/* fine persona 1 */}
+                  {/* persona 2 */}
+                  <Col xs={12} className="d-flex mb-1 mt-2">
+                    <Col className=" col-auto ">
+                      <div>
+                        <Image
+                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                          roundedCircle
+                          className="object-fit-cover border border-2 border-white"
+                          style={{ height: "48px", width: "48px" }}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="d-flex justify-content-between py-1 px-2">
+                        <div className="fs-6">
+                          <p className="fw-semibold m-0">Nome e Cognome</p>
+                          <p className="small m-0">Ruolo</p>
+                          <Button variant="outline-secondary" className=" rounded-pill py-1 my-2">
+                            <i className="bi bi-person-plus-fill"></i> Collegati
+                          </Button>
+                        </div>
+                      </div>
+                    </Col>
+                  </Col>
+                  <hr className="my-0" />
+
+                  {/* fine persona 2 */}
+                  <Row className="border-top-5 border-black  hover-gray">
+                    <Col xs={12} className="p-0 m-0 ">
+                      <Link to={"/"} className=" text-decoration-none text-black">
+                        <div className=" text-center py-2 text-gray-600">
+                          <p className="d-inline">Mostra tutto</p>
+                        </div>
+                      </Link>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          {/* FINE LISTA PERSONE */}
         </Col>
         {/* --- */}
 
