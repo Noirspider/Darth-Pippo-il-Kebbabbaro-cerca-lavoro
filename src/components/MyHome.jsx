@@ -14,6 +14,7 @@ import HomePutModal from "./HomePutModal";
 import HomePostModal from "./HomePostModal";
 import PostPictureModal from "./PostPictureModal";
 import { setCommentList } from "../redux/reducers/commentReducer";
+import { parseISO, formatDistanceToNow } from "date-fns";
 
 function MyHome() {
   const dispatch = useDispatch();
@@ -354,6 +355,10 @@ function MyHome() {
                             <div className="px-1">
                               <p className="fw-semibold m-0">{post.user.username}</p>
                               <p className="text-gray fs-7 m-0">{post.user.title}</p>
+                              <p className="text-gray fs-8 m-0">
+                                {formatDistanceToNow(parseISO(post.createdAt)) + " ago"}
+                              </p>
+
                               {/* <p className="text-gray fs-7 m-0">
                               2 giorni <span className="fw-bold"> · </span>
                               <i className="bi bi-globe-americas"></i>
