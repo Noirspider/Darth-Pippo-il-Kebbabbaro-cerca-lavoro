@@ -275,7 +275,7 @@ export const fetchPostImageHomeAction = (idPost, formData) => async (dispatch) =
   }
 };
 /* FETCH GET COMMENT */
-export const fetchCommentAction = (idComment) => async (dispatch) => {
+export const fetchCommentAction = () => async (dispatch) => {
   try {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
       headers: {
@@ -286,7 +286,7 @@ export const fetchCommentAction = (idComment) => async (dispatch) => {
 
     if (response.ok) {
       const data = await response.json();
-      dispatch(setCommentList(data.filter((comment) => comment.elementId == idComment).reverse()));
+      dispatch(setCommentList(data));
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }
@@ -308,7 +308,7 @@ export const fetchPostCommentAction = (commentObj) => async (dispatch) => {
 
     if (response.ok) {
       const data = await response.json();
-      dispatch(fetchCommentAction(data.elementId));
+      dispatch(fetchCommentAction());
     } else {
       throw new Error("Errore nel recupero dei risultati");
     }

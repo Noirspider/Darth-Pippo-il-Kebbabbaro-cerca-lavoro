@@ -21,8 +21,7 @@ function MyHome() {
   const myProfile = useSelector((state) => state.profile.myProfile);
   const allPost = useSelector((state) => state.home.allPost);
   const refreshPost = useSelector((state) => state.home.refreshPost);
-  const refreshComment = useSelector((state) => state.comment.refreshCom);
-  const filteredComment = useSelector((state) => state.comment.commentList);
+  const allComment = useSelector((state) => state.comment.commentList);
 
   const [showHomeDeleteModal, setShowHomeDeleteModal] = useState(false);
   const [showHomePutModal, setShowHomePutModal] = useState(false);
@@ -37,10 +36,12 @@ function MyHome() {
 
   useEffect(() => {
     dispatch(fetchProfileAction());
+    dispatch(fetchCommentAction());
 
     setFetchTimer(
       setInterval(() => {
         dispatch(fetchHomeAction());
+        dispatch(fetchCommentAction());
       }, 10000)
     );
   }, []);
@@ -52,7 +53,7 @@ function MyHome() {
   const handleComment = (post) => {
     dispatch(setCommentList(null));
     setSelectedPostComment(post);
-    dispatch(fetchCommentAction(post._id));
+    dispatch(fetchCommentAction());
   };
   const handleSubmitComment = (e, post) => {
     e.preventDefault();
@@ -411,7 +412,10 @@ function MyHome() {
                                   <div className="d-flex justify-content-center align-items-center hover-gray">
                                     <i className="bi bi-chat-text me-1"></i>
                                     <span className="fs-7 text-gray fw-semibold" onClick={() => handleComment(post)}>
-                                      Commenta
+                                      Commenti{" "}
+                                      {allComment &&
+                                        allComment.filter((commentToFilter) => commentToFilter.elementId == post._id)
+                                          .length}
                                     </span>
                                   </div>
                                 </Col>
@@ -468,38 +472,41 @@ function MyHome() {
                             </Col>
                             {/* commenti: */}
                             {/* commento 1 */}
-                            {filteredComment &&
-                              filteredComment.map((comment) => (
-                                <Col key={comment._id} xs={12} className="d-flex mb-3">
-                                  <Col className=" col-auto pe-1">
-                                    {myProfile && (
-                                      <div>
-                                        <Image
-                                          src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
-                                          roundedCircle
-                                          className="object-fit-cover border border-2 border-white"
-                                          style={{ height: "48px", width: "48px" }}
-                                        />
-                                      </div>
-                                    )}
-                                  </Col>
+                            {allComment &&
+                              allComment
+                                .filter((commentToFilter) => commentToFilter.elementId == post._id)
+                                .reverse()
+                                .map((comment) => (
+                                  <Col key={comment._id} xs={12} className="d-flex mb-3">
+                                    <Col className=" col-auto pe-1">
+                                      {myProfile && (
+                                        <div>
+                                          <Image
+                                            src="https://cdn-idoli-a.facciabuco.com/35/pippo/idolo.jpg"
+                                            roundedCircle
+                                            className="object-fit-cover border border-2 border-white"
+                                            style={{ height: "48px", width: "48px" }}
+                                          />
+                                        </div>
+                                      )}
+                                    </Col>
 
-                                  <Col>
-                                    <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
-                                      <div className="fs-6">
-                                        <p className="fw-semibold m-0">{comment.author}</p>
-                                        <p className="small m-0 mt-1">{comment.comment}</p>
-                                        <p className="fs-7 m-0 mt-1">
-                                          {formatDistanceToNow(parseISO(comment.createdAt)) + " ago"}
-                                        </p>
+                                    <Col>
+                                      <div className="d-flex justify-content-between bg-gray-100 rounded rounded-3 py-1 px-3">
+                                        <div className="fs-6">
+                                          <p className="fw-semibold m-0">{comment.author}</p>
+                                          <p className="small m-0 mt-1">{comment.comment}</p>
+                                          <p className="fs-7 m-0 mt-1">
+                                            {formatDistanceToNow(parseISO(comment.createdAt)) + " ago"}
+                                          </p>
+                                        </div>
+                                        <div>
+                                          <i className="bi bi-three-dots"></i>
+                                        </div>
                                       </div>
-                                      <div>
-                                        <i className="bi bi-three-dots"></i>
-                                      </div>
-                                    </div>
+                                    </Col>
                                   </Col>
-                                </Col>
-                              ))}
+                                ))}
                             {/* fine commento 1 */}
                           </Row>
                         )}
